@@ -1,6 +1,10 @@
 #include "sdlKeyz.h"
 
 std::string whichkey(SDL_Keycode key) {
+    bool caps = false;
+    SDL_Keymod a = SDL_GetModState();
+    if(a == KMOD_CAPS)
+        caps = true;
     switch(key) {
     case SDLK_0:return "0";
     case SDLK_1:return "1";
@@ -12,32 +16,32 @@ std::string whichkey(SDL_Keycode key) {
     case SDLK_7:return "7";
     case SDLK_8:return "8";
     case SDLK_9:return "9";
-    case SDLK_a:return "a";
-    case SDLK_b:return "b";
-    case SDLK_c:return "c";
-    case SDLK_d:return "d";
-    case SDLK_e:return "e";
-    case SDLK_f:return "f";
-    case SDLK_g:return "g";
-    case SDLK_h:return "h";
-    case SDLK_i:return "i";
-    case SDLK_j:return "j";
-    case SDLK_k:return "k";
-    case SDLK_l:return "l";
-    case SDLK_m:return "m";
-    case SDLK_n:return "n";
-    case SDLK_o:return "o";
-    case SDLK_p:return "p";
-    case SDLK_q:return "q";
-    case SDLK_r:return "r";
-    case SDLK_s:return "s";
-    case SDLK_t:return "t";
-    case SDLK_u:return "u";
-    case SDLK_v:return "v";
-    case SDLK_w:return "w";
-    case SDLK_x:return "x";
-    case SDLK_y:return "y";
-    case SDLK_z:return "z";
+    case SDLK_a:if(!caps)return "a"; return"A";
+    case SDLK_b:if(!caps)return "b"; return"B";
+    case SDLK_c:if(!caps)return "c"; return"C";
+    case SDLK_d:if(!caps)return "d"; return"D";
+    case SDLK_e:if(!caps)return "e"; return"E";
+    case SDLK_f:if(!caps)return "f"; return"F";
+    case SDLK_g:if(!caps)return "g"; return"G";
+    case SDLK_h:if(!caps)return "h"; return"H";
+    case SDLK_i:if(!caps)return "i"; return"I";
+    case SDLK_j:if(!caps)return "j"; return"J";
+    case SDLK_k:if(!caps)return "k"; return"K";
+    case SDLK_l:if(!caps)return "l"; return"L";
+    case SDLK_m:if(!caps)return "m"; return"M";
+    case SDLK_n:if(!caps)return "n"; return"N";
+    case SDLK_o:if(!caps)return "o"; return"O";
+    case SDLK_p:if(!caps)return "p"; return"P";
+    case SDLK_q:if(!caps)return "q"; return"Q";
+    case SDLK_r:if(!caps)return "r"; return"R";
+    case SDLK_s:if(!caps)return "s"; return"S";
+    case SDLK_t:if(!caps)return "t"; return"T";
+    case SDLK_u:if(!caps)return "u"; return"U";
+    case SDLK_v:if(!caps)return "v"; return"V";
+    case SDLK_w:if(!caps)return "w"; return"W";
+    case SDLK_x:if(!caps)return "x"; return"X";
+    case SDLK_y:if(!caps)return "y"; return"Y";
+    case SDLK_z:if(!caps)return "z"; return"Z";
     case SDLK_UP:return "up";
     case SDLK_DOWN:return "down";
     case SDLK_RIGHT:return "right";
@@ -66,6 +70,24 @@ std::string whichkey(SDL_Keycode key) {
     case SDLK_SEMICOLON:return";";
     case SDLK_MINUS:
     case SDLK_UNDERSCORE:return"-";
-    default: return "ERROR";
+    default: return "";
    }
+}
+std::string written(std::string key) {
+    if (key == "space")
+        return " ";
+    else if (key == "enter")
+        return "\n";
+    else if (key == "tab")
+        return "    ";
+    else if (key == "backspace" || key == "shift" || key == "alt" || key == "ctrl" || key == "esc" || key == "up"
+             || key == "down" || key == "right" || key == "left")
+        return "";
+    return key;
+}
+bool keyCheck(std::string key, std::vector<std::string> keys) {
+    for(unsigned int i=0; i<keys.size(); i++)
+        if(key == keys[i])
+            return true;
+    return false;
 }

@@ -18,6 +18,7 @@ class textRenderer
         void render(std::string text);
         void renderstep(bool all);
         void refreshCurrent();
+        void writing(std::string text);
         SDL_Surface* getCurrent();
     protected:
         int delay = 22;

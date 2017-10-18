@@ -15,6 +15,7 @@ hablarMain::~hablarMain()
 }
 
 void hablarMain::buttonClicked(View* view, event* Event, gameDelegator* gameDelegator, button* Button) {
+    Event->eventtype = Event->SPECIAL;
     if (Button->getName() == "Dejar")
         Event->eventtype = Event->QUIT;
     else if (Button->getName() == "Cargar") {

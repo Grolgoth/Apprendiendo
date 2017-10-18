@@ -19,8 +19,10 @@ void event::setClick(int x, int y, bool left){
         eventtype = RCLICK;
 }
 void event::setKeyEvent(std::string key, bool down) {
-    if (down && keyIsInKeysDown(key))
+    if (down && keyIsInKeysDown(key)) {
+        keyevent->setRepeat(true);
         return;
+    }
     delete keyevent;
     keyevent = new keyEvent(key, down);
     eventtype = KEYEVENT;

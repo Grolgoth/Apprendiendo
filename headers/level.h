@@ -22,6 +22,7 @@ class Level
         virtual void buttonClicked(View* view, event* Event, gameDelegator* gameDelegator, button* Button) = 0;
         void setViewOffset(int offset);
     protected:
+        int keyrepeatdelay = 0;
         textRenderer* TextRenderer;
         void handleButtons(View* view, event* Event, gameDelegator* gameDelegator);
         int viewOffset = 0;

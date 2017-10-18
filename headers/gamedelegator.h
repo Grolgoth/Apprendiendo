@@ -7,6 +7,7 @@
 #include "View.h"
 #include <vector>
 #include <textrenderer.h>
+#include "sdlKeyz.h"
 #define GAMEDELEGATOR_H
 
 class container;

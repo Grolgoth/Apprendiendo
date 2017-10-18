@@ -20,7 +20,7 @@ bool stringContains(std::string toSearch, std::string snippet) {
 
 std::string replaze(std::string targetString, std::string targetText, std::string replaceText, bool all) {
     if (!stringContains(targetString, targetText))
-        return "";
+        return targetString;
     std::string newString = "";
     int firstIndex = indexOf(targetString, targetText);
     for (int i=0; i<firstIndex; i++)

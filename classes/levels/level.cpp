@@ -6,6 +6,8 @@ Level::Level() {
 }
 
 Level::~Level() {
+    if (backGround != nullptr)
+        SDL_FreeSurface(backGround);
      for (unsigned int i=0; i<buttons.size(); i++)
         buttons[i].clearSurfaces();
     buttons.clear();

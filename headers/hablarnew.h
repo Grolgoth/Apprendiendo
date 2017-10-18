@@ -2,6 +2,10 @@
 #include "level.h"
 #define HABLARNEW_H
 
+struct personality{
+    std::string name = "";
+
+};
 
 class hablarNew: public Level
 {
@@ -12,6 +16,9 @@ class hablarNew: public Level
         virtual void buttonClicked(View* view, event* Event, gameDelegator* gameDelegator, button* Button);
     protected:
     private:
+        void checkName(std::string name);
+        int step;
+        personality p;
         std::string texts[10];
 };
 

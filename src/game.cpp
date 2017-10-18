@@ -10,9 +10,12 @@ void run() {
 }
 
 void loop(View* view, container* bin) {
+    bin->getDelegator()->delegate(view, bin);
     while(1) {
         if(SDL_PollEvent(view->getEvent()) || bin->getEvent()->eventtype == bin->getEvent()->QUIT
-           || bin->getEvent()->eventtype == bin->getEvent()->SPECIAL) {
+                || bin->getEvent()->eventtype == bin->getEvent()->SPECIAL) {
+            if (bin->getEvent()->eventtype == bin->getEvent()->KEYEVENT)
+                bin->getEvent()->getKeyEvent()->setRepeat(true);
             if (view->getEvent()->type == SDL_QUIT || bin->getEvent()->eventtype == bin->getEvent()->QUIT) {
                 break;
             }
@@ -26,10 +29,12 @@ void loop(View* view, container* bin) {
                 bin->setMx(view->getEvent()->motion.x);
                 bin->setMy(view->getEvent()->motion.y);
             }
-            else if (view->getEvent()->type == SDL_KEYDOWN && view->getEvent()->key.repeat == 0)
+            else if (view->getEvent()->type == SDL_KEYDOWN)
                 bin->getEvent()->setKeyEvent(whichkey(view->getEvent()->key.keysym.sym), true);
             else if (view->getEvent()->type == SDL_KEYUP)
                 bin->getEvent()->setKeyEvent(whichkey(view->getEvent()->key.keysym.sym), false);
+            else if (bin->getEvent()->eventtype != bin->getEvent()->SPECIAL)
+                continue;
             bin->getDelegator()->delegate(view, bin);
         }
         SDL_Delay(12);

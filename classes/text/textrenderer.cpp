@@ -7,6 +7,7 @@ textRenderer::textRenderer(View* view, TTF_Font* Font)
     WINH = view->WINH;
     backGround = load_image(view->getFilepath() + "img\\backgrounds\\defbackground.bmp");
     rendering = false;
+    refreshCurrent();
     font = Font;
 }
 
@@ -36,8 +37,7 @@ void textRenderer::renderstep(bool all) {
         rendering = false;
         return;
     }
-    if(toRender[0] != '&')
-        refreshCurrent();
+    refreshCurrent();
     std::string now;
     int bigDelay = 0;
     if (!all) {
@@ -45,17 +45,27 @@ void textRenderer::renderstep(bool all) {
             now = rendered + toRender[0];
             rendered = now;
         }
-        else
+        else {
             bigDelay = 100;
+            now = rendered;
+        }
         toRender = toRender.substr(1, toRender.size());
     }
     else {
         now = rendered + replaze(toRender, "&", "", true);
+        rendered = now;
         rendering = false;
     }
     SDL_Surface* text = talking(now, 55, font, color, true, "", WINW, WINH);
     apply_surface(50, 40, text, current);
+    SDL_FreeSurface(text);
     SDL_Delay(delay + bigDelay);
+}
+void textRenderer::writing(std::string text) {
+    refreshCurrent();
+    SDL_Surface* texts = talking(rendered + text, 55, font, color, true, "", WINW, WINH);
+    apply_surface(50, 40, texts, current);
+    SDL_FreeSurface(texts);
 }
 bool textRenderer::getRendering() {
     return rendering;
