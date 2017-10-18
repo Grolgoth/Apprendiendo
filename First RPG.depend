@@ -1,0 +1,481 @@
+# depslib dependency file v1.0
+1454532267 source:c:\progs\first rpg\game.cpp
+	"Game.h"
+
+1454532255 c:\progs\first rpg\game.h
+	"SDL.h"
+	<iostream>
+	"SDL_opengl.h"
+	"SDL_ttf.h"
+	<sstream>
+	<windows.h>
+	<mmsystem.h>
+	<shellapi.h>
+	<tchar.h>
+	<ctime>
+	<vector>
+	"math.h"
+	<fstream>
+
+1073234947 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl.h
+	"SDL_main.h"
+	"SDL_types.h"
+	"SDL_getenv.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_timer.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_joystick.h"
+	"SDL_events.h"
+	"SDL_video.h"
+	"SDL_byteorder.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1073234947 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_main.h
+	"SDL_types.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1090385606 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_types.h
+
+1105225981 c:\program files (x86)\codeblocks\mingw\include\sdl\begin_code.h
+
+1073234948 c:\program files (x86)\codeblocks\mingw\include\sdl\close_code.h
+
+1018535713 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_getenv.h
+	"begin_code.h"
+	"close_code.h"
+
+1100561407 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_error.h
+	"begin_code.h"
+	"close_code.h"
+
+1093028221 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_rwops.h
+	<stdio.h>
+	"SDL_types.h"
+	"begin_code.h"
+	"close_code.h"
+
+1105658696 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_timer.h
+	"SDL_main.h"
+	"SDL_types.h"
+	"begin_code.h"
+	"close_code.h"
+
+1093028221 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_audio.h
+	<stdio.h>
+	"SDL_main.h"
+	"SDL_types.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_byteorder.h"
+	"begin_code.h"
+	"close_code.h"
+
+1100297357 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_byteorder.h
+
+1113732990 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_cdrom.h
+	"SDL_types.h"
+	"begin_code.h"
+	"close_code.h"
+
+1090177506 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_joystick.h
+	"SDL_types.h"
+	"begin_code.h"
+	"close_code.h"
+
+1093028221 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_events.h
+	"SDL_types.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1073234947 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_active.h
+	"begin_code.h"
+	"close_code.h"
+
+1090191460 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_keyboard.h
+	"SDL_types.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1073234947 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_keysym.h
+
+1113732990 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_mouse.h
+	"SDL_types.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1104642676 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_video.h
+	<stdio.h>
+	"SDL_types.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1073234947 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_mutex.h
+	"SDL_main.h"
+	"SDL_types.h"
+	"begin_code.h"
+	"close_code.h"
+
+1073234947 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_quit.h
+
+1113732990 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_version.h
+	"SDL_types.h"
+	"begin_code.h"
+	"close_code.h"
+
+1093041125 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_opengl.h
+	<windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<windows.h>
+	<stddef.h>
+
+1454524744 c:\program files (x86)\codeblocks\mingw\include\sdl\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1454531888 source:c:\progs\first rpg\main.cpp
+	"Game.h"
+
+1508163640 source:c:\progs\first rpg\classes\view.cpp
+	"View.h"
+
+1508163640 c:\progs\first rpg\headers\view.h
+	"SDL.h"
+	"SDL_ttf.h"
+	<iostream>
+	<windows.h>
+
+1508168717 source:c:\progs\first rpg\src\game.cpp
+	"Game.h"
+
+1508100325 c:\progs\first rpg\headers\game.h
+	"SDL.h"
+	<iostream>
+	"SDL_opengl.h"
+	"SDL_ttf.h"
+	<sstream>
+	<windows.h>
+	<mmsystem.h>
+	<shellapi.h>
+	<tchar.h>
+	<ctime>
+	<vector>
+	"math.h"
+	<fstream>
+	"view.h"
+	"container.h"
+	"sdlKeyz.h"
+	"gamedelegator.h"
+
+1508168069 source:c:\progs\first rpg\src\main.cpp
+	"Game.h"
+
+1508168899 source:c:\progs\first rpg\classes\container.cpp
+	"container.h"
+
+1508168742 c:\progs\first rpg\headers\container.h
+	"event.h"
+	"defaultrenderer.h"
+	"gamedelegator.h"
+	"hablarmain.h"
+
+1507912161 c:\progs\first rpg\headers\event.h
+	"click.h"
+	"keyevent.h"
+	<iostream>
+	<vector>
+
+1507849578 c:\progs\first rpg\headers\click.h
+
+1507849578 c:\progs\first rpg\headers\keyevent.h
+	<iostream>
+
+1507849619 source:c:\progs\first rpg\classes\events\click.cpp
+	"click.h"
+
+1507912342 source:c:\progs\first rpg\classes\events\event.cpp
+	"event.h"
+
+1507849959 source:c:\progs\first rpg\classes\events\keyevent.cpp
+	"keyevent.h"
+
+1507905542 c:\progs\first rpg\headers\sdlkeyz.h
+	"SDL.h"
+	<iostream>
+
+1507911087 source:c:\progs\first rpg\src\sdlkeyz.cpp
+	"sdlKeyz.h"
+
+1507915166 source:c:\progs\first rpg\classes\text\textrenderer.cpp
+	"textrenderer.h"
+
+1507916104 c:\progs\first rpg\headers\textrenderer.h
+	<iostream>
+
+1507916104 c:\progs\first rpg\headers\defaultrenderer.h
+	"textrenderer.h"
+
+1507916104 source:c:\progs\first rpg\classes\text\defaultrenderer.cpp
+	"defaultrenderer.h"
+
+1508167447 c:\progs\first rpg\headers\gamedelegator.h
+	"SDL.h"
+	"View.h"
+	"level.h"
+
+1508167447 c:\progs\first rpg\headers\level.h
+	"View.h"
+	"SDL.h"
+	"button.h"
+	<vector>
+	"SDL_ttf.h"
+	"event.h"
+
+1508167447 source:c:\progs\first rpg\classes\gamedelegator.cpp
+	"gamedelegator.h"
+
+1508168038 source:c:\progs\first rpg\classes\levels\level.cpp
+	"level.h"
+
+1508179920 source:c:\progs\first rpg\classes\levels\button.cpp
+	"button.h"
+
+1508167878 c:\progs\first rpg\headers\button.h
+	"SDL.h"
+	"SDL_ttf.h"
+	<iostream>
+	"View.h"
+	"SDLfunctions.h"
+	"stringfunctions.h"
+
+1508177901 c:\progs\first rpg\headers\sdlfunctions.h
+	"SDL.h"
+	"SDL_ttf.h"
+	<iostream>
+	"stringfunctions.h"
+	<fstream>
+	<vector>
+
+1508154243 c:\progs\first rpg\headers\stringfunctions.h
+	<iostream>
+
+1508181977 source:c:\progs\first rpg\src\sdlfunctions.cpp
+	"SDLfunctions.h"
+
+1508181542 source:c:\progs\first rpg\src\stringfunctions.cpp
+	"stringfunctions.h"
+
+1508179417 source:c:\progs\first rpg\classes\levels\hablarmain.cpp
+	"hablarmain.h"
+
+1508165386 c:\progs\first rpg\headers\hablarmain.h
+	"level.h"
+
+1508296162 source:c:\progs\firstrpg\classes\container.cpp
+	"container.h"
+
+1508290270 c:\progs\firstrpg\headers\container.h
+	"event.h"
+	"textrenderer.h"
+	"gamedelegator.h"
+	"hablarmain.h"
+
+1508296656 c:\progs\firstrpg\headers\event.h
+	"click.h"
+	"keyevent.h"
+	<iostream>
+	<vector>
+
+1507849578 c:\progs\firstrpg\headers\click.h
+
+1507849578 c:\progs\firstrpg\headers\keyevent.h
+	<iostream>
+
+1508289861 c:\progs\firstrpg\headers\defaultrenderer.h
+	"textrenderer.h"
+
+1508297847 c:\progs\firstrpg\headers\textrenderer.h
+	"SDL.h"
+	"SDL_ttf.h"
+	<iostream>
+	"talking.h"
+	"View.h"
+	"SDLfunctions.h"
+
+1508296656 c:\progs\firstrpg\headers\gamedelegator.h
+	"SDL.h"
+	"SDL_ttf.h"
+	"View.h"
+	"level.h"
+	"hablarmain.h"
+	"View.h"
+	<vector>
+	<textrenderer.h>
+
+1508247630 c:\progs\firstrpg\headers\view.h
+	"SDL.h"
+	"SDL_ttf.h"
+	<iostream>
+	<windows.h>
+
+1508292882 c:\progs\firstrpg\headers\level.h
+	"View.h"
+	"SDL.h"
+	"button.h"
+	<vector>
+	"SDL_ttf.h"
+	"event.h"
+	<fstream>
+	<textrenderer.h>
+
+1508255909 c:\progs\firstrpg\headers\button.h
+	"SDL.h"
+	"SDL_ttf.h"
+	<iostream>
+	"View.h"
+	"SDLfunctions.h"
+	"stringfunctions.h"
+
+1508177901 c:\progs\firstrpg\headers\sdlfunctions.h
+	"SDL.h"
+	"SDL_ttf.h"
+	<iostream>
+	"stringfunctions.h"
+	<fstream>
+	<vector>
+
+1508279857 c:\progs\firstrpg\headers\stringfunctions.h
+	<iostream>
+
+1508283653 c:\progs\firstrpg\headers\hablarmain.h
+	"level.h"
+	"hablarload.h"
+
+1507849619 source:c:\progs\firstrpg\classes\events\click.cpp
+	"click.h"
+
+1507912342 source:c:\progs\firstrpg\classes\events\event.cpp
+	"event.h"
+
+1507849959 source:c:\progs\firstrpg\classes\events\keyevent.cpp
+	"keyevent.h"
+
+1508297847 source:c:\progs\firstrpg\classes\gamedelegator.cpp
+	"gamedelegator.h"
+	"container.h"
+
+1508281653 source:c:\progs\firstrpg\classes\levels\button.cpp
+	"button.h"
+
+1508293648 source:c:\progs\firstrpg\classes\levels\hablarmain.cpp
+	"hablarmain.h"
+	"gamedelegator.h"
+	"hablarnew.h"
+
+1508283653 source:c:\progs\firstrpg\classes\levels\level.cpp
+	"level.h"
+	"gamedelegator.h"
+
+1507916104 source:c:\progs\firstrpg\classes\text\defaultrenderer.cpp
+	"defaultrenderer.h"
+
+1508297614 source:c:\progs\firstrpg\classes\text\textrenderer.cpp
+	"textrenderer.h"
+
+1508247630 source:c:\progs\firstrpg\classes\view.cpp
+	"View.h"
+
+1508296818 source:c:\progs\firstrpg\src\game.cpp
+	"Game.h"
+
+1508100325 c:\progs\firstrpg\headers\game.h
+	"SDL.h"
+	<iostream>
+	"SDL_opengl.h"
+	"SDL_ttf.h"
+	<sstream>
+	<windows.h>
+	<mmsystem.h>
+	<shellapi.h>
+	<tchar.h>
+	<ctime>
+	<vector>
+	"math.h"
+	<fstream>
+	"view.h"
+	"container.h"
+	"sdlKeyz.h"
+	"gamedelegator.h"
+
+1507905542 c:\progs\firstrpg\headers\sdlkeyz.h
+	"SDL.h"
+	<iostream>
+
+1508279801 source:c:\progs\firstrpg\src\main.cpp
+	"Game.h"
+
+1507911087 source:c:\progs\firstrpg\src\sdlkeyz.cpp
+	"sdlKeyz.h"
+
+1508281128 source:c:\progs\firstrpg\src\stringfunctions.cpp
+	"stringfunctions.h"
+
+1508186443 source:c:\progs\firstrpg\src\sdlfunctions.cpp
+	"SDLfunctions.h"
+
+1508284132 source:c:\progs\firstrpg\classes\levels\hablarload.cpp
+	"hablarload.h"
+	"gamedelegator.h"
+	"hablarmain.h"
+
+1508283653 c:\progs\firstrpg\headers\hablarload.h
+	"level.h"
+
+1508251362 source:c:\progs\firstrpg\src\boos.cpp
+	"boos.h"
+	<f.h>
+
+1508251362 c:\progs\firstrpg\headers\boos.h
+	<iostream>
+
+1508251385 c:\progs\firstrpg\headers\f.h
+
+1508251400 source:c:\progs\firstrpg\src\f.cpp
+	"f.h"
+	"boos.h"
+
+1508290790 c:\progs\firstrpg\headers\talking.h
+	<iostream>
+	"SDL.h"
+	"SDL_ttf.h"
+
+1508294710 source:c:\progs\firstrpg\classes\levels\hablarnew.cpp
+	"hablarnew.h"
+	"gamedelegator.h"
+
+1508293323 c:\progs\firstrpg\headers\hablarnew.h
+	"level.h"
+
+1508296162 source:c:\progs\firstrpg\src\talking.cpp
+	"talking.h"
+	"SDLfunctions.h"
+

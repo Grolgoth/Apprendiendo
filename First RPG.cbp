@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="First RPG" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/First RPG" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="headers" />
+					<Add directory="classes/events" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/First RPG" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="headers" />
+					<Add directory="classes/events" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="../../Program Files (x86)/CodeBlocks/MinGW/include/SDL" />
+		</Compiler>
+		<Linker>
+			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf" />
+		</Linker>
+		<Unit filename="classes/container.cpp" />
+		<Unit filename="classes/events/click.cpp" />
+		<Unit filename="classes/events/event.cpp" />
+		<Unit filename="classes/events/keyevent.cpp" />
+		<Unit filename="classes/gamedelegator.cpp" />
+		<Unit filename="classes/levels/button.cpp" />
+		<Unit filename="classes/levels/hablarload.cpp" />
+		<Unit filename="classes/levels/hablarmain.cpp" />
+		<Unit filename="classes/levels/hablarnew.cpp" />
+		<Unit filename="classes/levels/level.cpp" />
+		<Unit filename="classes/text/textrenderer.cpp" />
+		<Unit filename="classes/view.cpp" />
+		<Unit filename="headers/SDLfunctions.h" />
+		<Unit filename="headers/View.h" />
+		<Unit filename="headers/button.h" />
+		<Unit filename="headers/click.h" />
+		<Unit filename="headers/container.h" />
+		<Unit filename="headers/event.h" />
+		<Unit filename="headers/game.h" />
+		<Unit filename="headers/gamedelegator.h" />
+		<Unit filename="headers/hablarload.h" />
+		<Unit filename="headers/hablarmain.h" />
+		<Unit filename="headers/hablarnew.h" />
+		<Unit filename="headers/keyevent.h" />
+		<Unit filename="headers/level.h" />
+		<Unit filename="headers/sdlKeyz.h" />
+		<Unit filename="headers/stringfunctions.h" />
+		<Unit filename="headers/talking.h" />
+		<Unit filename="headers/textrenderer.h" />
+		<Unit filename="src/SDLfunctions.cpp" />
+		<Unit filename="src/game.cpp" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/sdlKeyz.cpp" />
+		<Unit filename="src/stringfunctions.cpp" />
+		<Unit filename="src/talking.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
