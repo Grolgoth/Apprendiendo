@@ -21,7 +21,10 @@ class Level
         virtual void checkEvents(View* view, event* Event, gameDelegator* gameDelegator) = 0;
         virtual void buttonClicked(View* view, event* Event, gameDelegator* gameDelegator, button* Button) = 0;
         void setViewOffset(int offset);
+        int getViewOffset();
     protected:
+        bool scrollArrowButtonPressed(button* button);
+        bool buttonsBelowScreen();
         void scrollBackground(View* view, bool withTextBox);
         void clearButtons();
         int keyrepeatdelay = 0;

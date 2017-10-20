@@ -18,9 +18,11 @@ class hablarNew: public Level
         virtual void buttonClicked(View* view, event* Event, gameDelegator* gameDelegator, button* Button);
     protected:
     private:
+        void step7(gameDelegator* gd);
         void step6(View* view, gameDelegator* gd);
         void step5(button* Button);
         void step4(View* view, gameDelegator* gd);
+        void step2(event* Event, gameDelegator* gd);
         void checkName(std::string name);
         int step;
         personality p;

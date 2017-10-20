@@ -2,9 +2,9 @@
 
 std::string getResponse(int step, std::string* variableNames) {
     switch(step) {
-    case 0: return "Pues&.&.&. quieres hablar?? Primero tienes que decirme su nombre. Escribe tu nombre por favor.\n";
-    case 1: return "Que? !Es un nombre tan largo! Ya no puedo recordar. Dime otra vez por favor.\n";
-    case 2: return "Eso es su nombre?&& Hmm.&.&.& Supongo que lo suficiente. Pues,&& Dime algo sobre de ti.\n";
+    case 0: return "¿Pues&.&.&. quieres hablar?? Primero tienes que decirme su nombre. Escribe tu nombre por favor.\n";
+    case 1: return "¿Qué? !Es un nombre tan largo! Ya no puedo recordar. Dime otra vez por favor.\n";
+    case 2: return "¿Eso es su nombre?&& Hmm.&.&.& Supongo que lo suficiente. Pues,&& Dime algo sobre de ti.\n";
     case 6:
         {
         std::string adressForm, name = "";
@@ -15,9 +15,21 @@ std::string getResponse(int step, std::string* variableNames) {
         else
             adressForm = ".&.&.&Viajero&&/a ";
         name = variableNames[0];
-        return "Vale " + adressForm + name + ". Ya se nota que divertiremos mucho. Di mas. Quiero saber todo sobre de ti!\n"
+        return "Vale " + adressForm + name + ". Ya se nota que divertiremos mucho. Di mas. !Quiero saber todo sobre de ti!\n"
         + "Deja me ayudarte para describir tu personalidad. Escoge algunes rasgos típico para ti.";
         }
+    case 7:
+        {
+            std::string gender = *variableNames;
+            std::string adressForm = "Hombre, ";
+            if (gender == "F")
+                adressForm = "Chica, ";
+            else if (gender == "N")
+                adressForm = "Viajero, ";
+            return "!Guau, tantos es! Quieres ser el todo a la vez? " + adressForm + "tranquilo. No puedes tener todo.\n"
+            + "Dije escoge, pero cuando eliges todo no es escoger. Inténtalo de nuevo por favor. Y no mas que 12 opciones";
+        }
+    case 8: return "¿Qué? Es todo? No lo creo, eres demasiado humilde. En este mundo uno debe coger lo que es suyo. Seguramente hay más de tres cosas que uno puede decir sobre ti. Por favor, escoge al menos "+ *variableNames + " opciones.";
     default: return "No sé que decir!";
     }
 }

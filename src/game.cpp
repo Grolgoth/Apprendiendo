@@ -25,7 +25,10 @@ void loop(View* view, container* bin) {
             else if (view->getEvent()->type == SDL_MOUSEBUTTONDOWN && view->getEvent()->button.button == SDL_BUTTON_RIGHT) {
                     bin->getEvent()->setClick(bin->getMx(), bin->getMy(), false);
             }
+            else if (view->getEvent()->type == SDL_MOUSEBUTTONUP)
+                    bin->getEvent()->eventtype = bin->getEvent()->NOTHING;
             else if (view->getEvent()->type == SDL_MOUSEMOTION) {
+                bin->getEvent()->eventtype = bin->getEvent()->MOUSEMOTION;
                 bin->setMx(view->getEvent()->motion.x);
                 bin->setMy(view->getEvent()->motion.y);
             }
@@ -39,7 +42,5 @@ void loop(View* view, container* bin) {
         }
         if (!bin->getEvent()->SPECIAL)
             SDL_Delay(12);
-        else
-            SDL_Delay(3);
     }
 }

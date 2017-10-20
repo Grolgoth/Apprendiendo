@@ -2,11 +2,11 @@
 #include "container.h"
 
 gameDelegator::gameDelegator() {
-    //ctor
+
 }
 
 gameDelegator::~gameDelegator() {
-    //dtor
+    delete standard;
 }
 
 std::vector<TTF_Font*> gameDelegator::getFonts() {
@@ -15,7 +15,7 @@ std::vector<TTF_Font*> gameDelegator::getFonts() {
 std::vector<textRenderer*> gameDelegator::getTextRenderers() {
     return textRenderers;
 }
-void checkRenderers(View* view, textRenderer* renderer, container* bin) {
+void gameDelegator::checkRenderers(View* view, textRenderer* renderer, container* bin) {
     if (renderer->getRendering()) {
         if (bin->getEvent()->eventtype == bin->getEvent()->KEYEVENT && keyCheck(bin->getEvent()->getKeyEvent()->getKey(),
             std::vector<std::string>{"space", "enter"}) && bin->getEvent()->getKeyEvent()->getDown())
@@ -35,6 +35,9 @@ void gameDelegator::handleRenderers(View* view, std::vector<textRenderer*> rende
         }
     }
 }
+Level* gameDelegator::getStandard() {
+    return standard;
+}
 lvlDelegator::lvlDelegator(View* view, std::vector<TTF_Font*>* vectptrfonts, container* bin) {
     fonts = *vectptrfonts;
     standard = new hablarMain(view, fonts[0]);
@@ -42,7 +45,7 @@ lvlDelegator::lvlDelegator(View* view, std::vector<TTF_Font*>* vectptrfonts, con
 }
 
 lvlDelegator::~lvlDelegator() {
-    delete standard;
+
 }
 
 void lvlDelegator::delegate(View* view, container* bin) {
@@ -55,8 +58,4 @@ void lvlDelegator::delegate(View* view, container* bin) {
 void lvlDelegator::setStandard(Level* lvl) {
     delete standard;
     standard = lvl;
-}
-
-Level* lvlDelegator::getStandard() {
-    return standard;
 }

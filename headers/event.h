@@ -17,6 +17,8 @@ class event
             RCLICK,
             KEYEVENT,
             SPECIAL,
+            MOUSEMOTION,
+            NOTHING,
             QUIT
         };
         type eventtype;

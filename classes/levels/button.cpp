@@ -1,9 +1,10 @@
 #include "button.h"
 
-button::button(int Xoffst, int Yoffst, View* view, TTF_Font* Font, std::string text, std::string bmp, std::string textBmp, bool justText,
+button::button(int Xoffst, int Yoffst, View* view, TTF_Font* Font, std::string text, std::string bmp, bool scrollable, std::string textBmp, bool justText,
                int r, int g, int b, int a) {
     font = Font;
     color = createColor(r, g, b, a);
+    this->scrollable = scrollable;
     bool hasPressed = false;
     if (textBmp != "") {
         pressed = load_image(replaze(textBmp, "unpr", "pressed", false));
@@ -15,6 +16,7 @@ button::button(int Xoffst, int Yoffst, View* view, TTF_Font* Font, std::string t
             pressed = load_image(replaze(textBmp, "unpr", "pressed", false));
     }
     else if(!stringContains(text,"NOTEXT")){
+        extralines = getlines(text, 14);
         unPressed = talking(text, 14, font, color, true, "", view->WINW, view->WINH);
         pressed = talking(text, 14, font, brightColor(color), true, "", view->WINW, view->WINH);
     }
@@ -35,6 +37,33 @@ button::button(int Xoffst, int Yoffst, View* view, TTF_Font* Font, std::string t
     determineOffsets(Xoffst, Yoffst, view);
 }
 
+button::button(bool rememberMe, int Xoffst, int Yoffst, View* view, TTF_Font* Font,
+       std::string text, std::string bmp, bool scrollable, std::string textBMP) {
+    this->rememberMe = rememberMe;
+    font = Font;
+    color = createColor(0, 0, 0, 255);
+    this->scrollable = scrollable;
+    bool hasPressed = false;
+    if (textBMP != "") {
+        pressed = load_image(replaze(textBMP, "unpr", "pressed", false));
+        if (pressed != nullptr) {
+            hasPressed = true;
+        }
+        unPressed = load_image(textBMP);
+        if (hasPressed)
+            pressed = load_image(replaze(textBMP, "unpr", "pressed", false));
+    }
+    else {
+        extralines = getlines(text, 14);
+        unPressed = talking(text, 14, font, color, true, "", view->WINW, view->WINH);
+        pressed = talking(text, 14, font, brightColor(color), true, "", view->WINW, view->WINH);
+    }
+    pressed = assembleSurface(bmp, true, pressed, view);
+    unPressed = assembleSurface(bmp, false, unPressed, view);
+    name = text;
+    determineOffsets(Xoffst, Yoffst, view);
+}
+
 button::~button()
 {
 
@@ -51,13 +80,26 @@ button::button(const button& other)
     color = other.color;
     font = other.font;
     name = other.name;
+    scrollable = other.scrollable;
 }
 std::string button::getName(){
     return name;
 }
-bool button::clicked(int mx, int my) {
-    if ((mx >= x && mx <= x + w) && (my >= y && my <= y + h))
-        return true;
+bool button::clicked(int mx, int my, int Yoffst) {
+    if (scrollable) {
+        if ((mx >= x && mx <= x + w) && (my >= y + Yoffst && my <= y + Yoffst + h)) {
+                if (rememberMe)
+                    wasclicked = !wasclicked;
+            return true;
+        }
+    }
+    else {
+        if ((mx >= x && mx <= x + w) && (my >= y  && my <= y + h)) {
+            if (rememberMe)
+                    wasclicked = !wasclicked;
+            return true;
+        }
+    }
     return false;
 }
 SDL_Surface* button::getSurface(bool pressed) {
@@ -110,20 +152,22 @@ SDL_Surface* button::assembleSurface(std::string bmp, bool pressed, SDL_Surface*
     height = dims->h;
     borderWidth = getImageDimension(left, true);
     borderHeight = getImageDimension(left, false);
-    if (borderHeight - 2070/height < height)
-        borderHeight = height + 2070/height;
+    int textYoffset = 2070 / height + extralines * (8 - height/15);
     middleWidth = getImageDimension(middle, true);
     fullwidth = 2 * borderWidth;
     for (int i = width; i > 0; i -= middleWidth)
         fullwidth += middleWidth;
     surfLoaded = SDL_CreateRGBSurface(SDL_SWSURFACE,fullwidth,borderHeight,32,0xff000000,0x00ff0000,0x0000ff00,0x000000ff);
     assemble(left, middle, right, surfLoaded, width, borderWidth, middleWidth, borderHeight);
-    SDL_Rect R{x=borderWidth, y=2070/height, w=width, h = height};
+    SDL_Rect R{x=borderWidth, y=textYoffset, w=width, h = height};
     SDL_BlitSurface(dims, NULL, surfLoaded, &R);
     SDL_FreeSurface(dims);
     w = surfLoaded->w;
     h = surfLoaded->h;
     return surfLoaded;
+}
+bool button::getWasclicked() {
+    return wasclicked;
 }
 void button::determineOffsets(int Xoffst, int Yoffst, View* view) {
     x = Xoffst;

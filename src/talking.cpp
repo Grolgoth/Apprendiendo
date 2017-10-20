@@ -120,6 +120,10 @@ SDL_Surface* talking(std::string message, unsigned int characters, TTF_Font* A, 
                 spacecnt = 0;
             i = i + earlyCut;
             LI = TTF_RenderText_Solid(A, frag.c_str(), C);
+            if (cnt == 0)
+                temp->h = LI->h + TTF_FontLineSkip(A);
+            else
+                temp->h += LI->h;
             if (LI->w > temp->w)
                 temp->w = LI->w;
             apply_surface(0, cnt * TTF_FontLineSkip(A), LI, temp);
@@ -173,4 +177,96 @@ void apply_surface( int x, int y, SDL_Surface* source, SDL_Surface* destination,
 
     //Blit the surface
     SDL_BlitSurface( source, arwclip, destination, &offset );
+}
+
+int getlines(std::string message, unsigned int characters) {
+        unsigned int i = characters;
+        int cnt = 0;
+        int spacecnt = 0;
+        std::string frag;
+        while (message.length()>i-characters) {
+            bool clean = false;
+            frag = message.substr(i-characters, characters);
+            if (frag[frag.size()-1] == ' ' || message[i] == ' ' || message.length() <= i || frag[frag.size()-1] == '\n'
+                || message[i] == '\n')
+            {
+                clean = true;
+                if (message[i] == ' ')
+                    i++;
+            }
+            else
+            {
+                spacecnt = 0;
+                int el = 4;
+                if (characters <= 4)
+                    el = characters; // we look back if there is a space, but we shouldn't look further than characters.
+                for (int a = 1; a < el; a++)
+                {
+                    spacecnt ++;
+                    if (message[i  - a -1] == ' ')
+                    {
+                        clean = true;
+                        break;
+                    }
+                }
+                if (clean)
+                {
+                    std::string onzin;
+                    i -= spacecnt;
+                    for (unsigned int a = 0; a < characters - spacecnt; a++)
+                        onzin += frag[a];
+                    frag = onzin;
+                }
+            }
+            if (!clean)
+            {
+                spacecnt = 0;
+                int el = 3;
+                unsigned int poep = message[i - 1] + el; // unsigned vs signed bullshit
+                if (poep >= message.size())
+                    el = message.size() - i - 1; // we are checking if anywhere in the near future there will be a space but we don't want to check further than the end of message
+                for (int a = 0; a < el; a++)
+                {
+                    spacecnt ++;
+                    if (message[i + a] == ' ')
+                    {
+                        clean = true;
+                        break;
+                    }
+                }
+                if (clean)
+                {
+                    for (int a = 0; a < spacecnt; a++)
+                        frag = frag + message[i + a];
+                    i += spacecnt;
+                }
+            }
+            if (! clean)   // if both forward and backward there are no nearby spaces we go back all the way until we find one!
+            {
+                spacecnt = 0;
+                int el = characters -1;
+                for (int a = 1; a < el; a++)
+                {
+                    spacecnt ++;
+                    if (message[i - a - 1] == ' ')
+                    {
+                        clean = true;
+                        break;
+                    }
+                }
+                if (clean)
+                {
+                    std::string onzin;
+                    i -= spacecnt;
+                    for (unsigned int a = 0; a < characters - spacecnt; a++)
+                        onzin += frag[a];
+                    frag = onzin;
+                }
+            }
+            if (!clean)
+                spacecnt = 0;
+            i = i + characters;
+            cnt ++;
+        }
+        return cnt - 1;
 }
