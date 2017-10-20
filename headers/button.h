@@ -5,6 +5,7 @@
 #include "View.h"
 #include "SDLfunctions.h"
 #include "stringfunctions.h"
+#include "talking.h"
 #define BUTTON_H
 
 
@@ -25,7 +26,7 @@ class button
         void determineOffsets(int Xoffst, int Yoffst, View* view);
         SDL_Color color;
         TTF_Font* font;
-        SDL_Surface* pressed;
+        SDL_Surface* pressed = nullptr;
         SDL_Surface* unPressed;
         SDL_Surface* assembleSurface(std::string bmp, bool pressed, SDL_Surface* dims, View* view);
         int x;

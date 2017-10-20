@@ -15,14 +15,15 @@ button::button(int Xoffst, int Yoffst, View* view, TTF_Font* Font, std::string t
             pressed = load_image(replaze(textBmp, "unpr", "pressed", false));
     }
     else if(!stringContains(text,"NOTEXT")){
-        unPressed = fontToSurface(font, text, color);
-        pressed = fontToSurface(font, text, brightColor(color));
+        unPressed = talking(text, 14, font, color, true, "", view->WINW, view->WINH);
+        pressed = talking(text, 14, font, brightColor(color), true, "", view->WINW, view->WINH);
     }
     else {
         if (bmp != "")
             pressed = load_image(bmp);
-        unPressed = load_image(replaze(text, "NOTEXT", "", false));
-        text = subString(text, indexOf(text, "#"));
+        text = replaze(text, "NOTEXT", "", false);
+        unPressed=load_image(subString(text, 0, indexOf(text, "#")));
+        text = subString(text, indexOf(text, "#") + 1, text.size());
         w = unPressed->w;
         h = unPressed->h;
     }
@@ -109,6 +110,8 @@ SDL_Surface* button::assembleSurface(std::string bmp, bool pressed, SDL_Surface*
     height = dims->h;
     borderWidth = getImageDimension(left, true);
     borderHeight = getImageDimension(left, false);
+    if (borderHeight - 2070/height < height)
+        borderHeight = height + 2070/height;
     middleWidth = getImageDimension(middle, true);
     fullwidth = 2 * borderWidth;
     for (int i = width; i > 0; i -= middleWidth)

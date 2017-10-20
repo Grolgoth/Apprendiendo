@@ -44,6 +44,9 @@ void container::setSaveFile(std::string savefile) {
 void container::initFonts(std::string filepath) {
     fonts.push_back(TTF_OpenFont((filepath + "\\fonts\\CR.ttf").c_str(), 75));
     fonts.push_back(TTF_OpenFont((filepath + "\\fonts\\BOP.ttf").c_str(), 35));
+    fonts.push_back(TTF_OpenFont((filepath + "\\fonts\\CR.ttf").c_str(), 34));
+    fonts.push_back(TTF_OpenFont((filepath + "\\fonts\\CR.ttf").c_str(), 28));
+    fonts.push_back(TTF_OpenFont((filepath + "\\fonts\\CR.ttf").c_str(), 24));
 }
 void container::initRenderers(View* view) {
     textRenderers.push_back(new textRenderer(view, fonts[1]));

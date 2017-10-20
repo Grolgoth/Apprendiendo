@@ -290,7 +290,7 @@
 1508165386 c:\progs\first rpg\headers\hablarmain.h
 	"level.h"
 
-1508296162 source:c:\progs\firstrpg\classes\container.cpp
+1508466944 source:c:\progs\firstrpg\classes\container.cpp
 	"container.h"
 
 1508290270 c:\progs\firstrpg\headers\container.h
@@ -338,7 +338,7 @@
 	<iostream>
 	<windows.h>
 
-1508325320 c:\progs\firstrpg\headers\level.h
+1508457933 c:\progs\firstrpg\headers\level.h
 	"View.h"
 	"SDL.h"
 	"button.h"
@@ -348,13 +348,14 @@
 	<fstream>
 	<textrenderer.h>
 
-1508255909 c:\progs\firstrpg\headers\button.h
+1508467442 c:\progs\firstrpg\headers\button.h
 	"SDL.h"
 	"SDL_ttf.h"
 	<iostream>
 	"View.h"
 	"SDLfunctions.h"
 	"stringfunctions.h"
+	"talking.h"
 
 1508177901 c:\progs\firstrpg\headers\sdlfunctions.h
 	"SDL.h"
@@ -364,7 +365,7 @@
 	<fstream>
 	<vector>
 
-1508279857 c:\progs\firstrpg\headers\stringfunctions.h
+1508454941 c:\progs\firstrpg\headers\stringfunctions.h
 	<iostream>
 
 1508283653 c:\progs\firstrpg\headers\hablarmain.h
@@ -380,11 +381,11 @@
 1508328067 source:c:\progs\firstrpg\classes\events\keyevent.cpp
 	"keyevent.h"
 
-1508340477 source:c:\progs\firstrpg\classes\gamedelegator.cpp
+1508460809 source:c:\progs\firstrpg\classes\gamedelegator.cpp
 	"gamedelegator.h"
 	"container.h"
 
-1508341299 source:c:\progs\firstrpg\classes\levels\button.cpp
+1508464596 source:c:\progs\firstrpg\classes\levels\button.cpp
 	"button.h"
 
 1508340570 source:c:\progs\firstrpg\classes\levels\hablarmain.cpp
@@ -392,7 +393,7 @@
 	"gamedelegator.h"
 	"hablarnew.h"
 
-1508341299 source:c:\progs\firstrpg\classes\levels\level.cpp
+1508464878 source:c:\progs\firstrpg\classes\levels\level.cpp
 	"level.h"
 	"gamedelegator.h"
 
@@ -405,7 +406,7 @@
 1508247630 source:c:\progs\firstrpg\classes\view.cpp
 	"View.h"
 
-1508330274 source:c:\progs\firstrpg\src\game.cpp
+1508467285 source:c:\progs\firstrpg\src\game.cpp
 	"Game.h"
 
 1508100325 c:\progs\firstrpg\headers\game.h
@@ -444,7 +445,7 @@
 1508186443 source:c:\progs\firstrpg\src\sdlfunctions.cpp
 	"SDLfunctions.h"
 
-1508340570 source:c:\progs\firstrpg\classes\levels\hablarload.cpp
+1508463859 source:c:\progs\firstrpg\classes\levels\hablarload.cpp
 	"hablarload.h"
 	"gamedelegator.h"
 	"hablarmain.h"
@@ -470,14 +471,22 @@
 	"SDL.h"
 	"SDL_ttf.h"
 
-1508338396 source:c:\progs\firstrpg\classes\levels\hablarnew.cpp
+1508467036 source:c:\progs\firstrpg\classes\levels\hablarnew.cpp
 	"hablarnew.h"
 	"gamedelegator.h"
 
-1508322450 c:\progs\firstrpg\headers\hablarnew.h
+1508457313 c:\progs\firstrpg\headers\hablarnew.h
 	"level.h"
+	"hablarnew_dialog.h"
 
-1508346128 source:c:\progs\firstrpg\src\talking.cpp
+1508463087 source:c:\progs\firstrpg\src\talking.cpp
 	"talking.h"
 	"SDLfunctions.h"
+
+1508465737 c:\progs\firstrpg\headers\hablarnew_dialog.h
+	<iostream>
+	<vector>
+
+1508466492 source:c:\progs\firstrpg\classes\hablarnew_dialog.cpp
+	"hablarnew_dialog.h"
 

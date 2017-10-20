@@ -44,6 +44,7 @@
 		<Unit filename="classes/events/event.cpp" />
 		<Unit filename="classes/events/keyevent.cpp" />
 		<Unit filename="classes/gamedelegator.cpp" />
+		<Unit filename="classes/hablarnew_dialog.cpp" />
 		<Unit filename="classes/levels/button.cpp" />
 		<Unit filename="classes/levels/hablarload.cpp" />
 		<Unit filename="classes/levels/hablarmain.cpp" />
@@ -62,6 +63,7 @@
 		<Unit filename="headers/hablarload.h" />
 		<Unit filename="headers/hablarmain.h" />
 		<Unit filename="headers/hablarnew.h" />
+		<Unit filename="headers/hablarnew_dialog.h" />
 		<Unit filename="headers/keyevent.h" />
 		<Unit filename="headers/level.h" />
 		<Unit filename="headers/sdlKeyz.h" />

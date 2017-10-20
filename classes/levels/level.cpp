@@ -8,9 +8,7 @@ Level::Level() {
 Level::~Level() {
     if (backGround != nullptr)
         SDL_FreeSurface(backGround);
-     for (unsigned int i=0; i<buttons.size(); i++)
-        buttons[i].clearSurfaces();
-    buttons.clear();
+     clearButtons();
 }
 
 void Level::show(View* view, event* Event) {
@@ -54,4 +52,39 @@ button* Button = nullptr;
 
 void Level::setViewOffset(int offset) {
     viewOffset = offset;
+}
+
+void Level::scrollBackground(View* view, bool withTextBox) {
+    if (backGround != nullptr)
+        SDL_FreeSurface(backGround);
+    if (!withTextBox) {
+        backGround = SDL_CreateRGBSurface(SDL_SWSURFACE,view->WINW,view->WINH,32,0xff000000,0x00ff0000,0x0000ff00,0x000000ff);
+        SDL_Surface* tempSurf = load_image(view->getFilepath() + "img\\backgrounds\\strookje.bmp");
+        SDL_Rect R;R.x=view->WINW-tempSurf->w; R.y=view->WINH-tempSurf->h; R.h=tempSurf->h; R.w=tempSurf->w;
+        SDL_BlitSurface(tempSurf, NULL, backGround, &R);
+        int arrowButtonH = getImageDimension(view->getFilepath() + "img/scrollArrDown.bmp", false);
+        buttons.push_back(button(view->WINW-tempSurf->w, view->WINH-arrowButtonH, view, nullptr,
+            "NOTEXT" + view->getFilepath() +"img/scrollArrDown.bmp#downarrow", "", "", true));
+        buttons.push_back(button(view->WINW-tempSurf->w, view->WINH-tempSurf->h, view, nullptr,
+            "NOTEXT" + view->getFilepath() +"img/scrollArrUp.bmp#uparrow", "", "", true));
+        SDL_FreeSurface(tempSurf);
+    }
+    else {
+        backGround = SDL_CreateRGBSurface(SDL_SWSURFACE,view->WINW,view->WINH,32,0xff000000,0x00ff0000,0x0000ff00,0x000000ff);
+        SDL_Surface* tempSurf = load_image(view->getFilepath() + "img\\backgrounds\\strookjeSmall.bmp");
+        SDL_Rect R;R.x=view->WINW-tempSurf->w; R.y=0; R.h=tempSurf->h; R.w=tempSurf->w;
+        SDL_BlitSurface(tempSurf, NULL, backGround, &R);
+        int arrowButtonH = getImageDimension(view->getFilepath() + "img/scrollArrDown.bmp", false);
+        buttons.push_back(button(view->WINW-tempSurf->w, view->WINH-arrowButtonH, view, nullptr,
+            "NOTEXT" + view->getFilepath() +"img/scrollArrDown.bmp#downarrow", "", "", true));
+        buttons.push_back(button(view->WINW-tempSurf->w, 0, view, nullptr,
+            "NOTEXT" + view->getFilepath() +"img/scrollArrUp.bmp#uparrow", "", "", true));
+        SDL_FreeSurface(tempSurf);
+    }
+}
+
+void Level::clearButtons() {
+    for (unsigned int i=0; i<buttons.size(); i++)
+        buttons[i].clearSurfaces();
+    buttons.clear();
 }

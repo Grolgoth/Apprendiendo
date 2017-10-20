@@ -37,6 +37,9 @@ void loop(View* view, container* bin) {
                 continue;
             bin->getDelegator()->delegate(view, bin);
         }
-        SDL_Delay(12);
+        if (!bin->getEvent()->SPECIAL)
+            SDL_Delay(12);
+        else
+            SDL_Delay(3);
     }
 }

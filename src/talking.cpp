@@ -120,7 +120,11 @@ SDL_Surface* talking(std::string message, unsigned int characters, TTF_Font* A, 
                 spacecnt = 0;
             i = i + earlyCut;
             LI = TTF_RenderText_Solid(A, frag.c_str(), C);
+            if (LI->w > temp->w)
+                temp->w = LI->w;
             apply_surface(0, cnt * TTF_FontLineSkip(A), LI, temp);
+            if (cnt == 0)
+                temp->w = LI->w;
             SDL_FreeSurface(LI);
             cnt ++;
         }
