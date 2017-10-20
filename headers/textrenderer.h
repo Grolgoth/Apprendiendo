@@ -5,6 +5,7 @@
 #include "talking.h"
 #include "View.h"
 #include "SDLfunctions.h"
+#include "event.h"
 #define TEXTRENDERER_H
 
 
@@ -15,7 +16,7 @@ class textRenderer
         virtual ~textRenderer();
         bool getRendering();
         bool getNext();
-        void render(std::string text);
+        void render(std::string text, event* Event);
         void renderstep(bool all);
         void refreshCurrent();
         void writing(std::string text);

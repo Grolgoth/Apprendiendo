@@ -26,7 +26,7 @@ class Level
         bool scrollArrowButtonPressed(button* button);
         bool buttonsBelowScreen();
         void scrollBackground(View* view, bool withTextBox);
-        void clearButtons();
+        void clearButtons(bool onlyScrollable = false);
         int keyrepeatdelay = 0;
         textRenderer* TextRenderer;
         void handleButtons(View* view, event* Event, gameDelegator* gameDelegator);

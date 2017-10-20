@@ -313,13 +313,14 @@
 1508289861 c:\progs\firstrpg\headers\defaultrenderer.h
 	"textrenderer.h"
 
-1508323895 c:\progs\firstrpg\headers\textrenderer.h
+1508529162 c:\progs\firstrpg\headers\textrenderer.h
 	"SDL.h"
 	"SDL_ttf.h"
 	<iostream>
 	"talking.h"
 	"View.h"
 	"SDLfunctions.h"
+	"event.h"
 
 1508492134 c:\progs\firstrpg\headers\gamedelegator.h
 	"SDL.h"
@@ -338,7 +339,7 @@
 	<iostream>
 	<windows.h>
 
-1508509539 c:\progs\firstrpg\headers\level.h
+1508543302 c:\progs\firstrpg\headers\level.h
 	"View.h"
 	"SDL.h"
 	"button.h"
@@ -348,7 +349,7 @@
 	<fstream>
 	<textrenderer.h>
 
-1508513037 c:\progs\firstrpg\headers\button.h
+1508543302 c:\progs\firstrpg\headers\button.h
 	"SDL.h"
 	"SDL_ttf.h"
 	<iostream>
@@ -385,7 +386,7 @@
 	"gamedelegator.h"
 	"container.h"
 
-1508513037 source:c:\progs\firstrpg\classes\levels\button.cpp
+1508543302 source:c:\progs\firstrpg\classes\levels\button.cpp
 	"button.h"
 
 1508340570 source:c:\progs\firstrpg\classes\levels\hablarmain.cpp
@@ -393,20 +394,20 @@
 	"gamedelegator.h"
 	"hablarnew.h"
 
-1508513065 source:c:\progs\firstrpg\classes\levels\level.cpp
+1508543513 source:c:\progs\firstrpg\classes\levels\level.cpp
 	"level.h"
 	"gamedelegator.h"
 
 1507916104 source:c:\progs\firstrpg\classes\text\defaultrenderer.cpp
 	"defaultrenderer.h"
 
-1508334760 source:c:\progs\firstrpg\classes\text\textrenderer.cpp
+1508528570 source:c:\progs\firstrpg\classes\text\textrenderer.cpp
 	"textrenderer.h"
 
 1508247630 source:c:\progs\firstrpg\classes\view.cpp
 	"View.h"
 
-1508502354 source:c:\progs\firstrpg\src\game.cpp
+1508529715 source:c:\progs\firstrpg\src\game.cpp
 	"Game.h"
 
 1508100325 c:\progs\firstrpg\headers\game.h
@@ -471,11 +472,11 @@
 	"SDL.h"
 	"SDL_ttf.h"
 
-1508516905 source:c:\progs\firstrpg\classes\levels\hablarnew.cpp
+1508543346 source:c:\progs\firstrpg\classes\levels\hablarnew.cpp
 	"hablarnew.h"
 	"gamedelegator.h"
 
-1508514185 c:\progs\firstrpg\headers\hablarnew.h
+1508542162 c:\progs\firstrpg\headers\hablarnew.h
 	"level.h"
 	"hablarnew_dialog.h"
 
@@ -487,6 +488,6 @@
 	<iostream>
 	<vector>
 
-1508516797 source:c:\progs\firstrpg\classes\hablarnew_dialog.cpp
+1508542123 source:c:\progs\firstrpg\classes\hablarnew_dialog.cpp
 	"hablarnew_dialog.h"
 

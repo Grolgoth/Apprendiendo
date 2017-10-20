@@ -22,7 +22,9 @@ class button
         SDL_Surface* getSurface(bool pressed);
         SDL_Rect getRect();
         std::string getName();
+        bool getScrollable();
         bool getWasclicked();
+        void setWasclicked(bool state);
     protected:
     private:
         bool rememberMe = false;

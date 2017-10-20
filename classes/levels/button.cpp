@@ -81,6 +81,8 @@ button::button(const button& other)
     font = other.font;
     name = other.name;
     scrollable = other.scrollable;
+    wasclicked = other.wasclicked;
+    rememberMe = other.rememberMe;
 }
 std::string button::getName(){
     return name;
@@ -169,6 +171,9 @@ SDL_Surface* button::assembleSurface(std::string bmp, bool pressed, SDL_Surface*
 bool button::getWasclicked() {
     return wasclicked;
 }
+bool button::getScrollable() {
+    return scrollable;
+}
 void button::determineOffsets(int Xoffst, int Yoffst, View* view) {
     x = Xoffst;
     y = Yoffst;
@@ -176,6 +181,9 @@ void button::determineOffsets(int Xoffst, int Yoffst, View* view) {
         x = (view->WINW - unPressed->w) / 2 + Xoffst;
     if (Yoffst < 0)
         y = (view->WINH - unPressed->h) / 2 + Yoffst;
+}
+void button::setWasclicked(bool state) {
+    wasclicked = state;
 }
 void button::clearSurfaces() {
     SDL_FreeSurface(pressed);

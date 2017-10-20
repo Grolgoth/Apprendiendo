@@ -24,12 +24,16 @@ void Level::show(View* view, event* Event) {
         if (offset >= 0) {
             R.y += viewOffset;
             if (Event->eventtype == Event->CLICK) {
-                if (buttons->operator[](i).clicked(click->getX(), click->getY(), viewOffset) || buttons->operator[](i).getWasclicked()) {
+                if (buttons->operator[](i).clicked(click->getX(), click->getY(), viewOffset)) {
+                    buttons->operator[](i).setWasclicked(!buttons->operator[](i).getWasclicked());
                     SDL_BlitSurface(buttons->operator[](i).getSurface(true), NULL, view->getTarget() ,&R);
                     continue;
                 }
             }
-            SDL_BlitSurface(buttons->operator[](i).getSurface(false), NULL, view->getTarget() ,&R);
+            if(buttons->operator[](i).getWasclicked())
+                SDL_BlitSurface(buttons->operator[](i).getSurface(true), NULL, view->getTarget() ,&R);
+            else
+                SDL_BlitSurface(buttons->operator[](i).getSurface(false), NULL, view->getTarget() ,&R);
         }
     }
 }
@@ -113,8 +117,20 @@ bool Level::buttonsBelowScreen() {
     return false;
 }
 
-void Level::clearButtons() {
-    for (unsigned int i=0; i<buttons.size(); i++)
-        buttons[i].clearSurfaces();
-    buttons.clear();
+void Level::clearButtons(bool onlyScrollable) {
+    if (onlyScrollable) {
+        for (unsigned int i=0; i<buttons.size(); i++) {
+            if (buttons[i].getScrollable()) {
+                buttons[i].clearSurfaces();
+                buttons.erase(buttons.begin() + i);
+                i--;
+            }
+        }
+    }
+    else {
+        for (unsigned int i=0; i<buttons.size(); i++)
+            buttons[i].clearSurfaces();
+        buttons.clear();
+    }
+    viewOffset = 0;
 }

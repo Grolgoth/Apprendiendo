@@ -26,7 +26,8 @@ void textRenderer::refreshCurrent() {
     current = SDL_CreateRGBSurface(SDL_SWSURFACE,WINW,WINH,32,0xff000000,0x00ff0000,0x0000ff00,0x000000ff);
     SDL_BlitSurface(backGround, NULL, current, NULL);
 }
-void textRenderer::render(std::string text) {
+void textRenderer::render(std::string text, event* Event) {
+    Event->eventtype = Event->SPECIAL;
     rendered = "";
     rendering = true;
     next = false;
