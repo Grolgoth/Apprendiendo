@@ -36,6 +36,10 @@ void hablarNew::checkEvents(View* view, event* Event, gameDelegator* gameDelegat
         step6(view, gameDelegator, Event);
     if (step == 8 && !gameDelegator->getTextRenderers()[0]->getRendering())
         step8(view, gameDelegator, Event);
+    if (step == 10 && !gameDelegator->getTextRenderers()[0]->getRendering())
+        step10(view, gameDelegator);
+    if (step == 12 && !gameDelegator->getTextRenderers()[0]->getRendering())
+        step12(view, gameDelegator);
     if (Event->eventtype == Event->KEYEVENT) {
         if (Event->getKeyEvent()->getRepeat() && keyrepeatdelay < 1) {
             keyrepeatdelay ++;
@@ -53,6 +57,10 @@ void hablarNew::checkEvents(View* view, event* Event, gameDelegator* gameDelegat
 void hablarNew::buttonClicked(View* view, event* Event, gameDelegator* gameDelegator, button* Button) {
     if (step == 5)
         step5(Button);
+    if (step == 11)
+        step11(gameDelegator, Button, Event);
+    if (step == 13)
+        step13(gameDelegator, Button, Event);
 }
 void hablarNew::traits(std::string trait) {
     if (trait == "Soy agradable") p.nice = true;
@@ -241,4 +249,54 @@ void hablarNew::step9(gameDelegator* gd, event* Event) {
         gd->getTextRenderers()[0]->render(getResponse(11, nullptr), Event);
         step ++;
     }
+}
+void hablarNew::step10(View* view, gameDelegator* gd) {
+    SDL_FreeSurface(backGround);
+    backGround = nullptr;
+    buttons.push_back(button(10, 10, view, gd->getFonts()[4], "Martar es malvado. Todos mueren.", view->getFilepath() + "img/LB.bmp"));
+    buttons.push_back(button(420, 10, view, gd->getFonts()[4], "Lo discutimos, incluso si se vota por mí, está bien.", view->getFilepath() + "img/LB.bmp"));
+    std::string M = "hombre";
+    std::string male = "o";
+    if (p.gender == "F"){
+        M = "mujer"; male = "a";}
+    else if (p.gender == "N"){
+        M = "viajera"; male = "a";}
+    buttons.push_back(button(10, 160, view, gd->getFonts()[4], "Sí los mataría. Cada " + M + " por si mism " + male + ".", view->getFilepath() + "img/LB.bmp"));
+    buttons.push_back(button(420, 160, view, gd->getFonts()[4], "Pensé que íbamos a tener una conversación agradable...", view->getFilepath() + "img/LB.bmp"));
+    step ++;
+}
+
+void hablarNew::step11(gameDelegator* gd, button* Button, event* Event) {
+    if(stringContains(Button->getName(), "Pensé")) {
+        gd->getTextRenderers()[0]->render("¿Es esta tu manera de negar las dificultades de la vida? Escoge.", Event);
+        Button->clearSurfaces();
+        buttons.pop_back();
+        return;
+    }
+    else if (stringContains(Button->getName(), "Cada"))
+            p.realistic = true;
+    else if (stringContains(Button->getName(), "Martar"))
+            p.doGooder = true;
+    else if (stringContains(Button->getName(), "discutimos"))
+            p.democrat = true;
+    clearButtons();
+    gd->getTextRenderers()[0]->render("Vale. Siguiente pregunta:\nPolíticos, las diferencias de ingresos y un mercado libre son necesarios para una sociedad funcional. ¿Es esto cierto?", Event);
+    step ++;
+}
+void hablarNew::step12(View* view, gameDelegator* gd) {
+    SDL_FreeSurface(backGround);
+    backGround = nullptr;
+    buttons.push_back(button(10, 10, view, gd->getFonts()[0], "Sí", view->getFilepath() + "img/LB.bmp"));
+    buttons.push_back(button(420, 10, view, gd->getFonts()[0], "No", view->getFilepath() + "img/LB.bmp"));
+    buttons.push_back(button(10, 160, view, gd->getFonts()[0], "No sé", view->getFilepath() + "img/LB.bmp"));
+    buttons.push_back(button(420, 160, view, gd->getFonts()[4], "Tal vez algunas de esas cosas, pero no necesariamente todas ellas", view->getFilepath() + "img/LB.bmp"));
+    step ++;
+}
+void hablarNew::step13(gameDelegator* gd, button* Button, event* Event) {
+    if (Button->getName() == "Sí")
+        p.societyRooted = true;
+    else if (stringContains(Button->getName(), "Tal vez") || stringContains(Button->getName(), "No sé"))
+        p.societyModerateRooted = true;
+    clearButtons();
+    step++;
 }

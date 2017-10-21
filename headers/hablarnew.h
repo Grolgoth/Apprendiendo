@@ -24,6 +24,11 @@ struct personality{
     bool stubborn = false;
     bool talksalot = false;
     bool humble = false;
+    bool doGooder = false;
+    bool realistic = false;
+    bool democrat = false;
+    bool societyRooted = false;
+    bool societyModerateRooted = false;
     char hobbies[14] = {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'};
 };
 
@@ -39,6 +44,10 @@ class hablarNew: public Level
         void hobbies(std::string hobby);
         void traits(std::string trait);
         void personaityTraits(std::vector<std::string>traits);
+        void step13(gameDelegator* gd, button* Button, event* Event);
+        void step12(View* view, gameDelegator* gd);
+        void step11(gameDelegator* gd, button* Button, event* Event);
+        void step10(View* view, gameDelegator* gd);
         void step9(gameDelegator* gd, event* Event);
         void step8(View* view, gameDelegator* gd, event* Event);
         void step7(gameDelegator* gd, event* Event);

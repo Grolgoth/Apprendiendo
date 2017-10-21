@@ -382,7 +382,7 @@
 1508328067 source:c:\progs\firstrpg\classes\events\keyevent.cpp
 	"keyevent.h"
 
-1508494009 source:c:\progs\firstrpg\classes\gamedelegator.cpp
+1508544334 source:c:\progs\firstrpg\classes\gamedelegator.cpp
 	"gamedelegator.h"
 	"container.h"
 
@@ -476,7 +476,7 @@
 	"hablarnew.h"
 	"gamedelegator.h"
 
-1508542162 c:\progs\firstrpg\headers\hablarnew.h
+1508580264 c:\progs\firstrpg\headers\hablarnew.h
 	"level.h"
 	"hablarnew_dialog.h"
 
