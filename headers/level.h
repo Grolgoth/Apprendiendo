@@ -5,6 +5,7 @@
 #include <vector>
 #include "SDL_ttf.h"
 #include "event.h"
+#include "iofunctions.h"
 #include <fstream>
 #include <textrenderer.h>
 #define LEVEL_H

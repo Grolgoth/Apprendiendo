@@ -10,6 +10,48 @@ hablarNew::~hablarNew()
 {
     //dtor
 }
+
+std::string getPline(std::string name, bool value) {
+    if (!value)
+        return "";
+    return "<" + name + ">" + "true" + "</" + name + ">\n";
+}
+
+std::string hablarNew::getP() {
+    std::string result = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Personality>\n";
+    result += "<Name>" + p.name + "</Name>\n";
+    result += "<Gender>" + p.gender + "</Gender>\n";
+    result += "<Hobbies>" + p.getHobbies() + "</Hobbies>\n";
+    result += getPline("Funny", p.funny);
+    result += getPline("Loyal", p.loyal);
+    result += getPline("Love", p.love);
+    result += getPline("Carrier", p.carrier);
+    result += getPline("Curious", p.curious);
+    result += getPline("Aggressive", p.aggressive);
+    result += getPline("Arrogant", p.arrogant);
+    result += getPline("Asshole", p.asshole);
+    result += getPline("Brave", p.brave);
+    result += getPline("Chaotic", p.chaotic);
+    result += getPline("Content", p.content);
+    result += getPline("Democrat", p.democrat);
+    result += getPline("DoGooder", p.doGooder);
+    result += getPline("FreeThinking", p.freeThinking);
+    result += getPline("Humble", p.humble);
+    result += getPline("Intelligent", p.intelligent);
+    result += getPline("Nice", p.nice);
+    result += getPline("NoMorning", p.noMorning);
+    result += getPline("Optimistic", p.optimistic);
+    result += getPline("Patient", p.patient);
+    result += getPline("Realistic", p.realistic);
+    result += getPline("Shy", p.shy);
+    result += getPline("SocietyModerateRooted", p.societyModerateRooted);
+    result += getPline("SocietyRooted", p.societyRooted);
+    result += getPline("Sportive", p.sportive);
+    result += getPline("Stubborn", p.stubborn);
+    result += getPline("Talksalot", p.talksalot);
+    result += "</Personality>";
+    return result;
+}
 void hablarNew::checkName(std::string name) {
     if (name.size() > 0 && name.size() < 40)
         step++;
@@ -40,6 +82,12 @@ void hablarNew::checkEvents(View* view, event* Event, gameDelegator* gameDelegat
         step10(view, gameDelegator);
     if (step == 12 && !gameDelegator->getTextRenderers()[0]->getRendering())
         step12(view, gameDelegator);
+    if (step == 14 && !gameDelegator->getTextRenderers()[0]->getRendering())
+        step14(view, gameDelegator);
+    if (step == 16 && !gameDelegator->getTextRenderers()[0]->getRendering())
+        step16(view, gameDelegator);
+    if (step == 18 && !gameDelegator->getTextRenderers()[0]->getRendering())
+        step18(view, gameDelegator);
     if (Event->eventtype == Event->KEYEVENT) {
         if (Event->getKeyEvent()->getRepeat() && keyrepeatdelay < 1) {
             keyrepeatdelay ++;
@@ -52,6 +100,12 @@ void hablarNew::checkEvents(View* view, event* Event, gameDelegator* gameDelegat
             step7(gameDelegator, Event);
         if (step == 9 && Event->getKeyEvent()->getDown() && Event->getKeyEvent()->getKey() == "enter")
             step9(gameDelegator, Event);
+        if (step == 20 && Event->getKeyEvent()->getDown() && Event->getKeyEvent()->getKey() == "enter"
+            && !gameDelegator->getTextRenderers()[0]->getRendering())
+            wrapup(view, gameDelegator);
+        else if (step == 21 && Event->getKeyEvent()->getDown() && Event->getKeyEvent()->getKey() == "enter"
+            && !gameDelegator->getTextRenderers()[0]->getRendering())
+            step21(view, gameDelegator, Event);
     }
 }
 void hablarNew::buttonClicked(View* view, event* Event, gameDelegator* gameDelegator, button* Button) {
@@ -61,6 +115,12 @@ void hablarNew::buttonClicked(View* view, event* Event, gameDelegator* gameDeleg
         step11(gameDelegator, Button, Event);
     if (step == 13)
         step13(gameDelegator, Button, Event);
+    if (step == 15)
+        step15(gameDelegator, Button, Event);
+    if (step == 17)
+        step17(view, gameDelegator, Button, Event);
+    else if (step == 19)
+        step19(gameDelegator, Button, Event);
 }
 void hablarNew::traits(std::string trait) {
     if (trait == "Soy agradable") p.nice = true;
@@ -204,6 +264,7 @@ void hablarNew::step7(gameDelegator* gd, event* Event) {
         gd->getTextRenderers()[0]->render(getResponse(8, &number), Event);
     }
     else {
+        personaityTraits(traits);
         clearButtons(true);
         gd->getTextRenderers()[0]->render(getResponse(9, nullptr), Event);
         step ++;
@@ -262,12 +323,12 @@ void hablarNew::step10(View* view, gameDelegator* gd) {
     else if (p.gender == "N"){
         M = "viajera"; male = "a";}
     buttons.push_back(button(10, 160, view, gd->getFonts()[4], "Sí los mataría. Cada " + M + " por si mism " + male + ".", view->getFilepath() + "img/LB.bmp"));
-    buttons.push_back(button(420, 160, view, gd->getFonts()[4], "Pensé que íbamos a tener una conversación agradable...", view->getFilepath() + "img/LB.bmp"));
+    buttons.push_back(button(420, 160, view, gd->getFonts()[4], "Pensaba que íbamos a tener una conversación agradable...", view->getFilepath() + "img/LB.bmp"));
     step ++;
 }
 
 void hablarNew::step11(gameDelegator* gd, button* Button, event* Event) {
-    if(stringContains(Button->getName(), "Pensé")) {
+    if(stringContains(Button->getName(), "Pensaba")) {
         gd->getTextRenderers()[0]->render("¿Es esta tu manera de negar las dificultades de la vida? Escoge.", Event);
         Button->clearSurfaces();
         buttons.pop_back();
@@ -284,8 +345,6 @@ void hablarNew::step11(gameDelegator* gd, button* Button, event* Event) {
     step ++;
 }
 void hablarNew::step12(View* view, gameDelegator* gd) {
-    SDL_FreeSurface(backGround);
-    backGround = nullptr;
     buttons.push_back(button(10, 10, view, gd->getFonts()[0], "Sí", view->getFilepath() + "img/LB.bmp"));
     buttons.push_back(button(420, 10, view, gd->getFonts()[0], "No", view->getFilepath() + "img/LB.bmp"));
     buttons.push_back(button(10, 160, view, gd->getFonts()[0], "No sé", view->getFilepath() + "img/LB.bmp"));
@@ -297,6 +356,75 @@ void hablarNew::step13(gameDelegator* gd, button* Button, event* Event) {
         p.societyRooted = true;
     else if (stringContains(Button->getName(), "Tal vez") || stringContains(Button->getName(), "No sé"))
         p.societyModerateRooted = true;
+    else if ((Button->getName() == "No") || stringContains(Button->getName(), "No sé"))
+        p.freeThinking = true;
     clearButtons();
+    gd->getTextRenderers()[0]->render("Tanto tu pareja como tu trabajo son geniales, pero tu trabajo requiere que te mudes a otra ciudad, "
+            "y tu pareja no puede acompañarte. Ambos son poco probables de ser reemplazados en el corto plazo. ¿Qué haces?", Event);
     step++;
+}
+
+void hablarNew::step14(View* view, gameDelegator* gd) {
+    buttons.push_back(button(10, 10, view, gd->getFonts()[4], "Prefiero estar solo con un buen trabajo", view->getFilepath() + "img/LB.bmp"));
+    buttons.push_back(button(420, 10, view, gd->getFonts()[4], "Prefiero permanecer juntos y estar desemplead" + p.genderAdress(), view->getFilepath() + "img/LB.bmp"));
+    step++;
+}
+
+void hablarNew::step15(gameDelegator* gd, button* Button, event* Event) {
+    if (stringContains(Button->getName(), "estar solo"))
+        p.carrier = true;
+    else
+        p.love = true;
+    clearButtons();
+    gd->getTextRenderers()[0]->render("Vale, es todo lo que necesito saber por ahora. Disfruta tus conversaciones.", Event);
+    step++;
+}
+
+void hablarNew::step16(View* view, gameDelegator* gd) {
+    buttons.push_back(button(10, 10, view, gd->getFonts()[0], "Acuerdo", view->getFilepath() + "img/LB.bmp"));
+    buttons.push_back(button(420, 10, view, gd->getFonts()[0], "¡Espere!", view->getFilepath() + "img/LB.bmp"));
+    step++;
+}
+
+void hablarNew::step17(View * view, gameDelegator* gd, button* Button, event* Event) {
+    step++;
+    if (stringContains(Button->getName(), "Acuerdo")) {
+        clearButtons();
+        wrapup(view, gd);
+    }
+    else {
+       gd->getTextRenderers()[0]->render("¿Sí?", Event);
+       clearButtons();
+    }
+}
+
+void hablarNew::step18(View* view, gameDelegator* gd) {
+    buttons.push_back(button(10, 10, view, gd->getFonts()[2], "Que hay de tu?", view->getFilepath() + "img/LB.bmp"));
+    buttons.push_back(button(420, 10, view, gd->getFonts()[2], "...Nada. No importa", view->getFilepath() + "img/LB.bmp"));
+    step++;
+}
+
+void hablarNew::step19(gameDelegator* gd, button* Button, event* Event) {
+    clearButtons();
+    if (stringContains(Button->getName(), "Que")) {
+        gd->getTextRenderers()[0]->render("¿Aah, quieres saber quien soy? Por ahora digamos que yo soy este, y el todo. Este programa.\n"
+            "La fuente, la piedra filosofal, el único arbol, la zarza ardiente, información pura, la singularidad.\n"
+            "Y, el río de la luz, la palabra, la perla de gran precio, y finalmente, irremediablemente, el eschaton.\n", Event);
+        p.curious = true;
+        step ++;
+    }
+    else
+        gd->getTextRenderers()[0]->render("Como desées", Event);
+    step++;
+}
+
+void hablarNew::step21(View* view, gameDelegator* gd, event* Event) {
+     gd->getTextRenderers()[0]->render("Créeme como quieras, pero puedo prometerte esto, nos encontraremos de nuevo.&&Hasta luego&.&.&.", Event);
+     step --;
+}
+
+void hablarNew::wrapup(View* view, gameDelegator* gd) {
+    writeNewSaveGame(view->getFilepath() + "save", p.name + ".save", getP());
+    gd->getTextRenderers()[0]->setNext(true);
+    gd->setStandard(new hablar(view, gd->getFonts()[0]));
 }

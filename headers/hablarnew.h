@@ -1,6 +1,7 @@
 #ifndef HABLARNEW_H
 #include "level.h"
 #include "hablarnew_dialog.h"
+#include "hablar.h"
 #define HABLARNEW_H
 
 struct personality{
@@ -29,7 +30,30 @@ struct personality{
     bool democrat = false;
     bool societyRooted = false;
     bool societyModerateRooted = false;
+    bool freeThinking = false;
+    bool carrier = false;
+    bool love = false;
+    bool curious = false;
     char hobbies[14] = {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'};
+    std::string genderAdress() {
+        if (gender == "M")
+            return "o";
+        return "a";
+    };
+    std::string getHobbies() {
+        std::string result = "";
+        for (int i = 0; i<14; i++) {
+            if (hobbies[i] != '#')
+                result += hobbies[i];
+        }
+        return result;
+    };
+    bool toString(bool state) {
+        if(state)
+            return "true";
+        else
+            return "false";
+    };
 };
 
 class hablarNew: public Level
@@ -41,9 +65,17 @@ class hablarNew: public Level
         virtual void buttonClicked(View* view, event* Event, gameDelegator* gameDelegator, button* Button);
     protected:
     private:
+        void wrapup(View* view, gameDelegator* gd);
         void hobbies(std::string hobby);
         void traits(std::string trait);
         void personaityTraits(std::vector<std::string>traits);
+        void step21(View* view, gameDelegator* gd, event* Event);
+        void step19(gameDelegator* gd, button* Button, event* Event);
+        void step18(View* view, gameDelegator* gd);
+        void step17(View* view, gameDelegator* gd, button* Button, event* Event);
+        void step16(View* view, gameDelegator* gd);
+        void step15(gameDelegator* gd, button* Button, event* Event);
+        void step14(View* view, gameDelegator* gd);
         void step13(gameDelegator* gd, button* Button, event* Event);
         void step12(View* view, gameDelegator* gd);
         void step11(gameDelegator* gd, button* Button, event* Event);
@@ -58,7 +90,7 @@ class hablarNew: public Level
         void checkName(std::string name);
         int step;
         personality p;
-        std::string texts[10];
+        std::string getP();
 };
 
 #endif // HABLARNEW_H

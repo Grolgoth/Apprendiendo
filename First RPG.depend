@@ -313,7 +313,7 @@
 1508289861 c:\progs\firstrpg\headers\defaultrenderer.h
 	"textrenderer.h"
 
-1508529162 c:\progs\firstrpg\headers\textrenderer.h
+1508777616 c:\progs\firstrpg\headers\textrenderer.h
 	"SDL.h"
 	"SDL_ttf.h"
 	<iostream>
@@ -339,13 +339,14 @@
 	<iostream>
 	<windows.h>
 
-1508543302 c:\progs\firstrpg\headers\level.h
+1508775266 c:\progs\firstrpg\headers\level.h
 	"View.h"
 	"SDL.h"
 	"button.h"
 	<vector>
 	"SDL_ttf.h"
 	"event.h"
+	"iofunctions.h"
 	<fstream>
 	<textrenderer.h>
 
@@ -366,8 +367,9 @@
 	<fstream>
 	<vector>
 
-1508454941 c:\progs\firstrpg\headers\stringfunctions.h
+1508772550 c:\progs\firstrpg\headers\stringfunctions.h
 	<iostream>
+	<vector>
 
 1508283653 c:\progs\firstrpg\headers\hablarmain.h
 	"level.h"
@@ -401,7 +403,7 @@
 1507916104 source:c:\progs\firstrpg\classes\text\defaultrenderer.cpp
 	"defaultrenderer.h"
 
-1508528570 source:c:\progs\firstrpg\classes\text\textrenderer.cpp
+1508777616 source:c:\progs\firstrpg\classes\text\textrenderer.cpp
 	"textrenderer.h"
 
 1508247630 source:c:\progs\firstrpg\classes\view.cpp
@@ -434,13 +436,13 @@
 	<iostream>
 	<vector>
 
-1508279801 source:c:\progs\firstrpg\src\main.cpp
+1508777292 source:c:\progs\firstrpg\src\main.cpp
 	"Game.h"
 
 1508333665 source:c:\progs\firstrpg\src\sdlkeyz.cpp
 	"sdlKeyz.h"
 
-1508326086 source:c:\progs\firstrpg\src\stringfunctions.cpp
+1508772550 source:c:\progs\firstrpg\src\stringfunctions.cpp
 	"stringfunctions.h"
 
 1508186443 source:c:\progs\firstrpg\src\sdlfunctions.cpp
@@ -472,13 +474,14 @@
 	"SDL.h"
 	"SDL_ttf.h"
 
-1508543346 source:c:\progs\firstrpg\classes\levels\hablarnew.cpp
+1508780673 source:c:\progs\firstrpg\classes\levels\hablarnew.cpp
 	"hablarnew.h"
 	"gamedelegator.h"
 
-1508580264 c:\progs\firstrpg\headers\hablarnew.h
+1508775266 c:\progs\firstrpg\headers\hablarnew.h
 	"level.h"
 	"hablarnew_dialog.h"
+	"hablar.h"
 
 1508509001 source:c:\progs\firstrpg\src\talking.cpp
 	"talking.h"
@@ -490,4 +493,19 @@
 
 1508542123 source:c:\progs\firstrpg\classes\hablarnew_dialog.cpp
 	"hablarnew_dialog.h"
+
+1508775145 c:\progs\firstrpg\headers\hablar.h
+	<level.h>
+
+1508775169 source:c:\progs\firstrpg\classes\levels\hablar.cpp
+	"hablar.h"
+
+1508778271 source:c:\progs\firstrpg\src\iofunctions.cpp
+	"iofunctions.h"
+
+1508778271 c:\progs\firstrpg\headers\iofunctions.h
+	<iostream>
+	<fstream>
+	<windows.h>
+	"stringfunctions.h"
 

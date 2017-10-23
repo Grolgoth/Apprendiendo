@@ -16,6 +16,7 @@ class textRenderer
         virtual ~textRenderer();
         bool getRendering();
         bool getNext();
+        void setNext(bool state);
         void render(std::string text, event* Event);
         void renderstep(bool all);
         void refreshCurrent();

@@ -74,3 +74,7 @@ bool textRenderer::getRendering() {
 bool textRenderer::getNext() {
     return next;
 }
+
+void textRenderer::setNext(bool state) {
+    next = state;
+}
