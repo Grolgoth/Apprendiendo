@@ -8,5 +8,7 @@
 std::string encrypt(std::string name);
 std::vector<std::string> storeSavegames(std::string path);
 std::string decrypt(std::string name);
+std::string getSaveGame(std::string savegame);
 void writeNewSaveGame(std::string path, std::string filename, std::string toWrite);
+void saveGame(std::string path, std::string filename, std::string toWrite);
 #endif // IOFUNCTIONS_H_INCLUDED

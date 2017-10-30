@@ -38,6 +38,10 @@ void Level::show(View* view, event* Event) {
     }
 }
 
+void setSaveVars(std::string gamename) {
+
+}
+
 int Level::getViewOffset() {
     return viewOffset;
 }
@@ -133,4 +137,22 @@ void Level::clearButtons(bool onlyScrollable) {
         buttons.clear();
     }
     viewOffset = 0;
+}
+
+bool Level::typing(std::string* target, gameDelegator* gd, event* Event) {
+    if (keyCheck(Event->getKeyEvent()->getKey(), std::vector<std::string>{"enter", "backspace"}) && Event->getKeyEvent()->getDown()) {
+            if (Event->getKeyEvent()->getKey() == "enter") {
+                    Event->eventtype = Event->SPECIAL;
+                    return true;
+            }
+            else if (target->size() > 0) {
+                *target = target->substr(0, target->size() - 1);
+                gd->getTextRenderers()[0]->writing(*target);
+            }
+    }
+    else if (Event->getKeyEvent()->getDown()) {
+        *target += written(Event->getKeyEvent()->getKey());
+        gd->getTextRenderers()[0]->writing(*target);
+    }
+    return false;
 }

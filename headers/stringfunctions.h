@@ -14,4 +14,5 @@ bool vectorContains(std::vector<T> vect, T element) {
 }
 std::string replaze(std::string targetString, std::string targetText, std::string replaceText, bool all);
 std::string subString(std::string target, int beginIndex, int endIndex);
+bool toBool(std::string target);
 #endif // STRINGFUNCTIONS_H_INCLUDED

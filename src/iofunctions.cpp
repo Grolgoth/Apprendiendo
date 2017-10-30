@@ -12,7 +12,7 @@ std::string encrypt(std::string name)
 std::string decrypt(std::string name) {
     for (unsigned int i = 0; i < name.size(); i++)
     {
-        name[i] = -1* name[i] + 50 -i%2;
+        name[i] = -1* name[i] + 50 +i%2;
     }
     return name;
 }
@@ -22,6 +22,12 @@ std::string reAssemble(std::string name, std::string append, std::string endSynt
     name += append;
     name += endSyntax;
     return name;
+}
+
+void saveGame(std::string path, std::string filename, std::string toWrite) {
+    std::ofstream out(path + filename);
+    out << encrypt(toWrite);
+    out.close();
 }
 
 void writeNewSaveGame(std::string path, std::string filename, std::string toWrite) {
@@ -35,6 +41,16 @@ void writeNewSaveGame(std::string path, std::string filename, std::string toWrit
     std::ofstream out(path + "/" + filename);
     out << encrypt(toWrite);
     out.close();
+}
+
+std::string getSaveGame(std::string savegame) {
+    std::string result = "";
+    std::ifstream in(savegame);
+    char c;
+    while (in >> c)
+        result += c;
+    in.close();
+    return decrypt(result);
 }
 
 std::vector<std::string> storeSavegames(std::string path) {

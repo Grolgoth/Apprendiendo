@@ -41,3 +41,9 @@ std::string subString(std::string target, int beginIndex, int endIndex) {
         buffer += target[i];
     return buffer;
 }
+
+bool toBool(std::string target) {
+    if (target != "true")
+        return false;
+    return true;
+}

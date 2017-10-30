@@ -25,7 +25,7 @@ std::string hablarNew::getP() {
     result += getPline("Funny", p.funny);
     result += getPline("Loyal", p.loyal);
     result += getPline("Love", p.love);
-    result += getPline("Carrier", p.carrier);
+    result += getPline("Career", p.carrier);
     result += getPline("Curious", p.curious);
     result += getPline("Aggressive", p.aggressive);
     result += getPline("Arrogant", p.arrogant);

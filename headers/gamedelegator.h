@@ -27,6 +27,7 @@ class gameDelegator {
         void handleRenderers(View* view, std::vector<textRenderer*> renderers, container* bin);
         std::vector<TTF_Font*> fonts;
         std::vector<textRenderer*> textRenderers;
+        std::string gameName;
     private:
 };
 
