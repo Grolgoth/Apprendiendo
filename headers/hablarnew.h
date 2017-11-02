@@ -36,7 +36,6 @@ class hablarNew: public Level
         void step4(View* view, gameDelegator* gd);
         void step2(event* Event, gameDelegator* gd);
         void checkName(std::string name);
-        int step;
         personality p;
         std::string getP();
 };

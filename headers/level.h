@@ -35,6 +35,7 @@ class Level
         textRenderer* TextRenderer;
         void handleButtons(View* view, event* Event, gameDelegator* gameDelegator);
         int viewOffset = 0;
+        int step = 0;
         button* checkButtons(int x, int y);
         std::vector<button> buttons;
         SDL_Surface* backGround = nullptr;

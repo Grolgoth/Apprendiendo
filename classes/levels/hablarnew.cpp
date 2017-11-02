@@ -18,7 +18,7 @@ std::string getPline(std::string name, bool value) {
 }
 
 std::string hablarNew::getP() {
-    std::string result = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Personality>\n";
+    std::string result = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Save>\n<Personality>\n";
     result += "<Name>" + p.name + "</Name>\n";
     result += "<Gender>" + p.gender + "</Gender>\n";
     result += "<Hobbies>" + p.getHobbies() + "</Hobbies>\n";
@@ -49,7 +49,8 @@ std::string hablarNew::getP() {
     result += getPline("Sportive", p.sportive);
     result += getPline("Stubborn", p.stubborn);
     result += getPline("Talksalot", p.talksalot);
-    result += "</Personality>";
+    result += "</Personality>\n";
+    result += "<Location>Room</Location>\n</Save>";
     return result;
 }
 void hablarNew::checkName(std::string name) {
@@ -426,5 +427,5 @@ void hablarNew::step21(View* view, gameDelegator* gd, event* Event) {
 void hablarNew::wrapup(View* view, gameDelegator* gd) {
     writeNewSaveGame(view->getFilepath() + "save", p.name + ".save", getP());
     gd->getTextRenderers()[0]->setNext(true);
-    gd->setStandard(new hablar(view, gd->getFonts()[0]));
+    gd->setStandard(new hablar(view, gd->getFonts()[2], gd->getGameName()));
 }

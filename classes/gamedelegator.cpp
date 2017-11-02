@@ -15,6 +15,12 @@ std::vector<TTF_Font*> gameDelegator::getFonts() {
 std::vector<textRenderer*> gameDelegator::getTextRenderers() {
     return textRenderers;
 }
+std::string gameDelegator::getGameName() {
+    return gameName;
+}
+void gameDelegator::setGameName(std::string name) {
+    gameName = name;
+}
 void gameDelegator::checkRenderers(View* view, textRenderer* renderer, container* bin) {
     if (renderer->getRendering()) {
         if (bin->getEvent()->eventtype == bin->getEvent()->KEYEVENT && keyCheck(bin->getEvent()->getKeyEvent()->getKey(),

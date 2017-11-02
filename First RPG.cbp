@@ -15,6 +15,7 @@
 					<Add option="-g" />
 					<Add directory="headers" />
 					<Add directory="classes/events" />
+					<Add directory="headers/locations" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -26,6 +27,7 @@
 					<Add option="-O2" />
 					<Add directory="headers" />
 					<Add directory="classes/events" />
+					<Add directory="headers/locations" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -51,6 +53,8 @@
 		<Unit filename="classes/levels/hablarmain.cpp" />
 		<Unit filename="classes/levels/hablarnew.cpp" />
 		<Unit filename="classes/levels/level.cpp" />
+		<Unit filename="classes/levels/locations/location.cpp" />
+		<Unit filename="classes/levels/locations/room.cpp" />
 		<Unit filename="classes/savestructs.cpp" />
 		<Unit filename="classes/text/textrenderer.cpp" />
 		<Unit filename="classes/view.cpp" />
@@ -70,6 +74,8 @@
 		<Unit filename="headers/iofunctions.h" />
 		<Unit filename="headers/keyevent.h" />
 		<Unit filename="headers/level.h" />
+		<Unit filename="headers/locations/location.h" />
+		<Unit filename="headers/locations/room.h" />
 		<Unit filename="headers/savestructs.h" />
 		<Unit filename="headers/sdlKeyz.h" />
 		<Unit filename="headers/stringfunctions.h" />

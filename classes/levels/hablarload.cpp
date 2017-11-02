@@ -1,23 +1,24 @@
 #include "hablarload.h"
 #include "gamedelegator.h"
 #include "hablarmain.h"
+#include "hablar.h"
 
 void hablarLoad::storeSavegames(View* view) {
     std::string arg = "cd " + view->getFilepath() + "save && java SaveFiles " + view->getFilepath() + "save";
     system(arg.c_str());
     std::ifstream in(view->getFilepath() + "save\\savegames.txt");
+    in.unsetf(std::ios_base::skipws);
     char a;
     std::string buffer = "";
     while(in >> a) {
-        buffer += a;
-        if(a == '\n') {
-            saveGames.push_back(buffer);
-            buffer = "";
+        if (a != '\n') {
+            buffer += a;
+            continue;
         }
-    }
-    if (! stringContains(buffer, "Nosavegamesfound."))
         saveGames.push_back(buffer);
-    else
+        buffer = "";
+    }
+    if (stringContains(buffer, "Nosavegamesfound."))
         saveGames.clear();
     in.close();
     arg = replaze(arg, "java SaveFiles " + view->getFilepath() + "save", "del savegames.txt", false);
@@ -52,10 +53,14 @@ void hablarLoad::buttonClicked(View* view, event* Event, gameDelegator* gameDele
     Event->eventtype = Event->SPECIAL;
     if (Button->getName() == "Dejar")
         Event->eventtype = Event->QUIT;
-    else if (Button->getName() == "Vuelva") {
+    else if (Button->getName() == "Vuelva" && gameDelegator->getGameName() == "") {
         gameDelegator->setStandard(new hablarMain(view, gameDelegator->getFonts()[0]));
         return;
     }
+    else
+        gameDelegator->setGameName(view->getFilepath() + "save/" + Button->getName() + ".save");
+    gameDelegator->setStandard(new hablar(view, gameDelegator->getFonts()[2], gameDelegator->getGameName()));
+    return;
 }
 
 void hablarLoad::checkEvents(View* view, event* Event, gameDelegator* gameDelegator) {

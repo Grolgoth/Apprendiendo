@@ -313,7 +313,7 @@
 1508289861 c:\progs\firstrpg\headers\defaultrenderer.h
 	"textrenderer.h"
 
-1508774016 c:\progs\firstrpg\headers\textrenderer.h
+1509661951 c:\progs\firstrpg\headers\textrenderer.h
 	"SDL.h"
 	"SDL_ttf.h"
 	<iostream>
@@ -322,7 +322,7 @@
 	"SDLfunctions.h"
 	"event.h"
 
-1509369523 c:\progs\firstrpg\headers\gamedelegator.h
+1509640466 c:\progs\firstrpg\headers\gamedelegator.h
 	"SDL.h"
 	"SDL_ttf.h"
 	"View.h"
@@ -339,7 +339,7 @@
 	<iostream>
 	<windows.h>
 
-1509369945 c:\progs\firstrpg\headers\level.h
+1509650072 c:\progs\firstrpg\headers\level.h
 	"View.h"
 	"SDL.h"
 	"button.h"
@@ -385,7 +385,7 @@
 1508324467 source:c:\progs\firstrpg\classes\events\keyevent.cpp
 	"keyevent.h"
 
-1508540734 source:c:\progs\firstrpg\classes\gamedelegator.cpp
+1509640466 source:c:\progs\firstrpg\classes\gamedelegator.cpp
 	"gamedelegator.h"
 	"container.h"
 
@@ -404,7 +404,7 @@
 1507916104 source:c:\progs\firstrpg\classes\text\defaultrenderer.cpp
 	"defaultrenderer.h"
 
-1508774016 source:c:\progs\firstrpg\classes\text\textrenderer.cpp
+1509661951 source:c:\progs\firstrpg\classes\text\textrenderer.cpp
 	"textrenderer.h"
 
 1508244030 source:c:\progs\firstrpg\classes\view.cpp
@@ -449,10 +449,11 @@
 1508182843 source:c:\progs\firstrpg\src\sdlfunctions.cpp
 	"SDLfunctions.h"
 
-1508460259 source:c:\progs\firstrpg\classes\levels\hablarload.cpp
+1509660841 source:c:\progs\firstrpg\classes\levels\hablarload.cpp
 	"hablarload.h"
 	"gamedelegator.h"
 	"hablarmain.h"
+	"hablar.h"
 
 1508280053 c:\progs\firstrpg\headers\hablarload.h
 	"level.h"
@@ -475,11 +476,11 @@
 	"SDL.h"
 	"SDL_ttf.h"
 
-1509383570 source:c:\progs\firstrpg\classes\levels\hablarnew.cpp
+1509660832 source:c:\progs\firstrpg\classes\levels\hablarnew.cpp
 	"hablarnew.h"
 	"gamedelegator.h"
 
-1509369680 c:\progs\firstrpg\headers\hablarnew.h
+1509650072 c:\progs\firstrpg\headers\hablarnew.h
 	"level.h"
 	"hablarnew_dialog.h"
 	"hablar.h"
@@ -495,11 +496,13 @@
 1508538523 source:c:\progs\firstrpg\classes\hablarnew_dialog.cpp
 	"hablarnew_dialog.h"
 
-1509369014 c:\progs\firstrpg\headers\hablar.h
+1509650072 c:\progs\firstrpg\headers\hablar.h
 	<level.h>
+	"location.h"
 
-1509369014 source:c:\progs\firstrpg\classes\levels\hablar.cpp
+1509660568 source:c:\progs\firstrpg\classes\levels\hablar.cpp
 	"hablar.h"
+	"gamedelegator.h"
 
 1509383570 source:c:\progs\firstrpg\src\iofunctions.cpp
 	"iofunctions.h"
@@ -510,11 +513,30 @@
 	<windows.h>
 	"stringfunctions.h"
 
-1509383616 c:\progs\firstrpg\headers\savestructs.h
+1509652793 c:\progs\firstrpg\headers\savestructs.h
 	<iostream>
 	<vector>
 	"iofunctions.h"
+	"View.h"
 
-1509369523 source:c:\progs\firstrpg\classes\savestructs.cpp
+1509660674 source:c:\progs\firstrpg\classes\savestructs.cpp
 	"savestructs.h"
+	"room.h"
+	"hablar.h"
+	"location.h"
+
+1509651243 c:\progs\firstrpg\headers\locations\location.h
+	<iostream>
+	"gamedelegator.h"
+
+1509651289 source:c:\progs\firstrpg\classes\levels\locations\location.cpp
+	"location.h"
+	"hablar.h"
+
+1509651357 source:c:\progs\firstrpg\classes\levels\locations\room.cpp
+	"room.h"
+	"hablar.h"
+
+1509651357 c:\progs\firstrpg\headers\locations\room.h
+	"location.h"
 

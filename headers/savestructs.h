@@ -2,7 +2,11 @@
 #include <iostream>
 #include <vector>
 #include "iofunctions.h"
+#include "View.h"
 #define SAVESTRUCTS_H
+
+class hablar;
+class location;
 
 struct personality{
     std::string name = "";
@@ -56,6 +60,7 @@ struct personality{
     };
 };
 
-personality fromSave(std::string savegame);
+void fromSave(std::string savegame, personality* p);
+location* locationFromSave(std::string savegame, View* view, hablar* menu);
 
 #endif // SAVESTRUCTS_H

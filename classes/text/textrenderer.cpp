@@ -67,6 +67,10 @@ void textRenderer::writing(std::string text) {
     SDL_Surface* texts = talking(rendered + text, 55, font, color, true, "", WINW, WINH);
     apply_surface(50, 40, texts, current);
     SDL_FreeSurface(texts);
+    next = false;
+}
+void textRenderer::setRendered(std::string state) {
+    rendered = state;
 }
 bool textRenderer::getRendering() {
     return rendering;

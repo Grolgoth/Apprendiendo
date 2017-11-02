@@ -1,11 +1,14 @@
 #include "savestructs.h"
+#include "room.h"
+#include "hablar.h"
+#include "location.h"
 
 using namespace std;
 
 vector<string> getElements(string savegame, string element) {
     vector<string> result;
     string game = getSaveGame(savegame);
-    string sub = subString(game, indexOf(game, "<" + element + ">"), indexOf(game, "</" + element + ">"));
+    string sub = subString(game, indexOf(game, "<" + element + ">") + 2 + element.length(), indexOf(game, "</" + element + ">"));
     game = "";
     for (unsigned int i=0; i<sub.length(); i++) {
         bool continues = true;
@@ -15,6 +18,7 @@ vector<string> getElements(string savegame, string element) {
                     continues = false;
                     result.push_back(game);
                     game  = "";
+                    continue;
                 }
                 game += sub[h];
             }
@@ -25,6 +29,7 @@ vector<string> getElements(string savegame, string element) {
                     continues = false;
                     result.push_back(game);
                     game  = "";
+                    continue;
                 }
                 game += sub[h];
             }
@@ -33,74 +38,81 @@ vector<string> getElements(string savegame, string element) {
     return result;
 }
 
-void singleElement(personality p, string element, string value) {
+void singleElement(personality* p, string element, string value) {
     if (element == "noMorning")
-        p.noMorning = true;
+        p->noMorning = true;
     else if (element == "Name")
-        p.name = value;
+        p->name = value;
     else if (element == "Gender")
-        p.gender = value;
+        p->gender = value;
     else if (element == "Hobbies") {
         for (unsigned int i = 0; i<value.length(); i++)
-            p.hobbies[i] = value[i];
+            p->hobbies[i] = value[i];
     }
     else if (element == "Funny")
-        p.funny = true;
+        p->funny = true;
     else if (element == "Arrogant")
-        p.arrogant = true;
+        p->arrogant = true;
     else if (element == "SocietyModerateRooted")
-        p.societyModerateRooted = true;
+        p->societyModerateRooted = true;
     else if (element == "SocietyRooted")
-        p.societyRooted = true;
+        p->societyRooted = true;
     else if (element == "FreeThinking")
-        p.freeThinking = true;
+        p->freeThinking = true;
     else if (element == "Career")
-        p.carrier = true;
+        p->carrier = true;
     else if (element == "Curious")
-        p.curious = true;
+        p->curious = true;
     else if (element == "Aggressive")
-        p.aggressive = true;
+        p->aggressive = true;
     else if (element == "Loyal")
-        p.loyal = true;
+        p->loyal = true;
     else if (element == "Love")
-        p.love = true;
+        p->love = true;
     else if (element == "Asshole")
-        p.asshole = true;
+        p->asshole = true;
     else if (element == "Brave")
-        p.brave = true;
+        p->brave = true;
     else if (element == "Content")
-        p.content = true;
+        p->content = true;
     else if (element == "Chaotic")
-        p.chaotic = true;
+        p->chaotic = true;
     else if (element == "Democrat")
-        p.democrat = true;
+        p->democrat = true;
     else if (element == "Dogooder")
-        p.doGooder = true;
+        p->doGooder = true;
     else if (element == "Humble")
-        p.humble = true;
+        p->humble = true;
     else if (element == "Intelligent")
-        p.intelligent = true;
+        p->intelligent = true;
     else if (element == "Nice")
-        p.nice = true;
+        p->nice = true;
     else if (element == "Optimistic")
-        p.optimistic = true;
+        p->optimistic = true;
     else if (element == "Realistic")
-        p.realistic = true;
+        p->realistic = true;
     else if (element == "Shy")
-        p.shy = true;
+        p->shy = true;
     else if (element == "Patient")
-        p.patient = true;
+        p->patient = true;
     else if (element == "Sportive")
-        p.sportive = true;
+        p->sportive = true;
     else if (element == "Talksalot")
-        p.talksalot = true;
+        p->talksalot = true;
     else if (element == "Stubborn")
-        p.stubborn = true;
+        p->stubborn = true;
 }
-personality fromSave(string savegame) {
-    personality p;
-    std::vector<string> elements = getElements(savegame, "Personality");
+void fromSave(string savegame, personality* p) {
+    vector<string> elements = getElements(savegame, "Personality");
     for (unsigned int i = 0; i<elements.size() - 1; i+=2)
         singleElement(p, elements[i], elements[i+1]);
-    return p;
+}
+
+location* locationFromSave(string savegame, View* view, hablar* menu) {
+    string game = getSaveGame(savegame);
+    string loc = subString(game, indexOf(game, "<Location>") + 10, indexOf(game, "</Location>"));
+    if (loc == "Room") {
+        return new room(savegame, view, menu, "Un Cuarto");
+    }
+    return nullptr;
 }

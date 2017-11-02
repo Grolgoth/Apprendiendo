@@ -18,9 +18,11 @@ class gameDelegator {
         virtual ~gameDelegator();
         virtual void delegate(View* view, container* bin) = 0;
         virtual void setStandard(Level* lvl) = 0;
+        void setGameName(std::string name);
         Level* getStandard();
         std::vector<TTF_Font*> getFonts();
         std::vector<textRenderer*> getTextRenderers();
+        std::string getGameName();
     protected:
         Level* standard;
         void checkRenderers(View* view, textRenderer* renderer, container* bin);
