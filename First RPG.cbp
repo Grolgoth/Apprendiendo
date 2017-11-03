@@ -55,6 +55,7 @@
 		<Unit filename="classes/levels/level.cpp" />
 		<Unit filename="classes/levels/locations/location.cpp" />
 		<Unit filename="classes/levels/locations/room.cpp" />
+		<Unit filename="classes/levels/locations/roomHandler.cpp" />
 		<Unit filename="classes/savestructs.cpp" />
 		<Unit filename="classes/text/textrenderer.cpp" />
 		<Unit filename="classes/view.cpp" />
@@ -76,6 +77,7 @@
 		<Unit filename="headers/level.h" />
 		<Unit filename="headers/locations/location.h" />
 		<Unit filename="headers/locations/room.h" />
+		<Unit filename="headers/locations/roomHandler.h" />
 		<Unit filename="headers/savestructs.h" />
 		<Unit filename="headers/sdlKeyz.h" />
 		<Unit filename="headers/stringfunctions.h" />

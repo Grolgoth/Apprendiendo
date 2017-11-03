@@ -23,7 +23,7 @@ vector<string> getElements(string savegame, string element) {
                 game += sub[h];
             }
         }
-        else if (sub[i] == '>' && !(sub[i+1] == '\n' || sub[i+1] == '<')) {
+        else if (sub[i] == '>' && !(sub[i+1] == '\n' || sub[i+1] == '<' || i + 1 >= sub.size())) {
             for (unsigned int h=i+1; continues; h++) {
                 if (sub[h] == '<') {
                     continues = false;
@@ -102,6 +102,15 @@ void singleElement(personality* p, string element, string value) {
     else if (element == "Stubborn")
         p->stubborn = true;
 }
+string SingleElement(vector<string> elements, string element) {
+    for (unsigned int i = 0; i<elements.size() - 1; i+=2) {
+        if (element == elements[i]) {
+            return elements[i + 1];
+        }
+    }
+    return "";
+}
+
 void fromSave(string savegame, personality* p) {
     vector<string> elements = getElements(savegame, "Personality");
     for (unsigned int i = 0; i<elements.size() - 1; i+=2)

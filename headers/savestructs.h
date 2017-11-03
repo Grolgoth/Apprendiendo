@@ -60,6 +60,8 @@ struct personality{
     };
 };
 
+std::string SingleElement(std::vector<std::string> elements, std::string element);
+std::vector<std::string> getElements(std::string savegame, std::string element);
 void fromSave(std::string savegame, personality* p);
 location* locationFromSave(std::string savegame, View* view, hablar* menu);
 

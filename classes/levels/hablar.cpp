@@ -26,6 +26,7 @@ void hablar::checkEvents(View* view, event* Event, gameDelegator* gd) {
         gd->getTextRenderers()[0]->writing("");
         justcreated = false;
     }
+    Location->handleEvent(Event, gd);
 }
 
 void hablar::buttonClicked(View* view, event* Event, gameDelegator* gameDelegator, button* Button) {

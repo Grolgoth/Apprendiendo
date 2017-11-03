@@ -53,6 +53,34 @@ std::string getSaveGame(std::string savegame) {
     return decrypt(result);
 }
 
+char strToChar(const char* str) {
+    char parsed = 0;
+    for (int i = 0; i < 8; i++) {
+        if (str[i] == '1') {
+            parsed |= 1 << (7 - i);
+        }
+    }
+    return parsed;
+}
+
+std::string getBinaryFile(std::string file) {
+    std::ifstream in(file);
+    in.unsetf(std::ios_base::skipws);
+    std::string File = "";
+    std::string buffer = "";
+    char c;
+    while (in >> c) {
+        if (c != '\n' && c != ' ')
+            buffer += c;
+        else {
+            File += strToChar(buffer.c_str());
+            buffer = "";
+        }
+    }
+    in.close();
+    return File;
+}
+
 std::vector<std::string> storeSavegames(std::string path) {
     std::vector<std::string> saveGames;
     std::string arg = "cd " + path + " && java SaveFiles " + path;

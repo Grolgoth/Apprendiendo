@@ -476,7 +476,7 @@
 	"SDL.h"
 	"SDL_ttf.h"
 
-1509660832 source:c:\progs\firstrpg\classes\levels\hablarnew.cpp
+1509743701 source:c:\progs\firstrpg\classes\levels\hablarnew.cpp
 	"hablarnew.h"
 	"gamedelegator.h"
 
@@ -500,43 +500,52 @@
 	<level.h>
 	"location.h"
 
-1509660568 source:c:\progs\firstrpg\classes\levels\hablar.cpp
+1509697686 source:c:\progs\firstrpg\classes\levels\hablar.cpp
 	"hablar.h"
 	"gamedelegator.h"
 
-1509383570 source:c:\progs\firstrpg\src\iofunctions.cpp
+1509741224 source:c:\progs\firstrpg\src\iofunctions.cpp
 	"iofunctions.h"
 
-1509383570 c:\progs\firstrpg\headers\iofunctions.h
+1509738007 c:\progs\firstrpg\headers\iofunctions.h
 	<iostream>
 	<fstream>
 	<windows.h>
 	"stringfunctions.h"
 
-1509652793 c:\progs\firstrpg\headers\savestructs.h
+1509734216 c:\progs\firstrpg\headers\savestructs.h
 	<iostream>
 	<vector>
 	"iofunctions.h"
 	"View.h"
 
-1509660674 source:c:\progs\firstrpg\classes\savestructs.cpp
+1509737658 source:c:\progs\firstrpg\classes\savestructs.cpp
 	"savestructs.h"
 	"room.h"
 	"hablar.h"
 	"location.h"
 
-1509651243 c:\progs\firstrpg\headers\locations\location.h
+1509744094 c:\progs\firstrpg\headers\locations\location.h
 	<iostream>
 	"gamedelegator.h"
 
-1509651289 source:c:\progs\firstrpg\classes\levels\locations\location.cpp
+1509744094 source:c:\progs\firstrpg\classes\levels\locations\location.cpp
 	"location.h"
 	"hablar.h"
+	"savestructs.h"
 
-1509651357 source:c:\progs\firstrpg\classes\levels\locations\room.cpp
+1509745119 source:c:\progs\firstrpg\classes\levels\locations\room.cpp
 	"room.h"
 	"hablar.h"
+	"roomHandler.h"
 
-1509651357 c:\progs\firstrpg\headers\locations\room.h
+1509697686 c:\progs\firstrpg\headers\locations\room.h
 	"location.h"
+
+1509743373 c:\progs\firstrpg\headers\locations\roomhandler.h
+	"room.h"
+
+1509745398 source:c:\progs\firstrpg\classes\levels\locations\roomhandler.cpp
+	"roomHandler.h"
+	"iofunctions.h"
 

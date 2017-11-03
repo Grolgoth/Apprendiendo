@@ -50,7 +50,9 @@ std::string hablarNew::getP() {
     result += getPline("Stubborn", p.stubborn);
     result += getPline("Talksalot", p.talksalot);
     result += "</Personality>\n";
-    result += "<Location>Room</Location>\n</Save>";
+    result += "<Location>Room</Location>";
+    result += "<Locations>\n<Room><Step>0</Step><File>Room</File><Wall>true</Wall></Room></Locations>";
+    result += "\n</Save>";
     return result;
 }
 void hablarNew::checkName(std::string name) {
