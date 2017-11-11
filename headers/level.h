@@ -25,6 +25,7 @@ class Level
         virtual void buttonClicked(View* view, event* Event, gameDelegator* gameDelegator, button* Button) = 0;
         void setViewOffset(int offset);
         int getViewOffset();
+        personality getP();
     protected:
         bool typing(std::string* target, gameDelegator* gd, event* Event);
         bool scrollArrowButtonPressed(button* button);

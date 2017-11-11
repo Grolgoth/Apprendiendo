@@ -24,6 +24,7 @@ std::string encrypt(std::string name)
 
 void doDecrypt (string filename){
     ifstream in(filename + ".save");
+    in.unsetf(ios_base::skipws);
     std::string full = "";
     char c;
     while(in >> c)
@@ -32,12 +33,14 @@ void doDecrypt (string filename){
     cout<<full<<endl;
     in.close();
     ofstream out(filename + ".xml");
+    out.unsetf(ios_base::skipws);
     out << full;
     out.close();
 }
 
 void doEncrypt (string filename) {
     ifstream in(filename + ".xml");
+    in.unsetf(ios_base::skipws);
     std::string full = "";
     char c;
     while(in >> c)
@@ -46,6 +49,7 @@ void doEncrypt (string filename) {
     cout<<full<<endl;
     in.close();
     ofstream out(filename + ".save");
+    out.unsetf(ios_base::skipws);
     out << full;
     out.close();
 }

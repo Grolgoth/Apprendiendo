@@ -1,6 +1,7 @@
 #ifndef STRINGFUNCTIONS_H_INCLUDED
 #include <iostream>
 #include <vector>
+#include <stdexcept>
 #define STRINGFUNCTIONS_H_INCLUDED
 
 int indexOf(std::string toSearch, std::string snippet);
@@ -14,5 +15,6 @@ bool vectorContains(std::vector<T> vect, T element) {
 }
 std::string replaze(std::string targetString, std::string targetText, std::string replaceText, bool all);
 std::string subString(std::string target, int beginIndex, int endIndex);
+int stringToInt(std::string target);
 bool toBool(std::string target);
 #endif // STRINGFUNCTIONS_H_INCLUDED

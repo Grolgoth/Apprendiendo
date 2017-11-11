@@ -24,9 +24,13 @@ void room::handleEvent(event* Event, gameDelegator* gd) {
         if (Event->getKeyEvent()->getKey() == "enter") {
             textEventType = ienterPressed(this);
             if (textEventType == 0 || (textEventType == 1 && write == ""))
-                gd->getTextRenderers()[0]->render(getResult(), Event);
+                gd->getTextRenderers()[0]->render(getResult(this), Event);
             else if(textEventType == 1 && write != "") {
                 textEventType = checkAnswer(this, write, gd, Event);
+                if (textEventType == 4) {
+                    hablarSwap(getResult(this), gd);
+                    return;
+                }
                 write = "";
             }
         }

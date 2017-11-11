@@ -125,3 +125,26 @@ location* locationFromSave(string savegame, View* view, hablar* menu) {
     }
     return nullptr;
 }
+
+void addElement(string savegame, string name, string content) {
+    string game = getSaveGame(savegame);
+    string game1 = subString(game, 0, indexOf(game, "</Save>"));
+    game1 += "\n<" + name + ">" + content + "</" + name + ">" + "</Save>";
+    ofstream out(savegame);
+    out.unsetf(ios_base::skipws);
+    out << encrypt(game1);
+    out.close();
+}
+
+void setElement(string savegame, string name, string element, string state) {
+    string game = getSaveGame(savegame);
+    string cadre = subString(game, indexOf(game, "<" + name + ">") + 2 + name.length(), indexOf(game, "</" + name + ">"));
+    string newcadre = replaze(cadre,
+        subString(cadre, indexOf(cadre, "<" + element + ">"), indexOf(cadre, "</" + element + ">") + 3 + element.length())
+        , "<" + element + ">" + state + "</" + element + ">", false);
+    game = replaze(game, cadre, newcadre, false);
+    ofstream out(savegame);
+    out.unsetf(ios_base::skipws);
+    out << encrypt(game);
+    out.close();
+}

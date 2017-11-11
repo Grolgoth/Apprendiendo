@@ -16,6 +16,7 @@
 					<Add directory="headers" />
 					<Add directory="classes/events" />
 					<Add directory="headers/locations" />
+					<Add directory="headers/persons" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -28,6 +29,7 @@
 					<Add directory="headers" />
 					<Add directory="classes/events" />
 					<Add directory="headers/locations" />
+					<Add directory="headers/persons" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -56,6 +58,7 @@
 		<Unit filename="classes/levels/locations/location.cpp" />
 		<Unit filename="classes/levels/locations/room.cpp" />
 		<Unit filename="classes/levels/locations/roomHandler.cpp" />
+		<Unit filename="classes/levels/persons/alvaro.cpp" />
 		<Unit filename="classes/savestructs.cpp" />
 		<Unit filename="classes/text/textrenderer.cpp" />
 		<Unit filename="classes/view.cpp" />
@@ -78,6 +81,7 @@
 		<Unit filename="headers/locations/location.h" />
 		<Unit filename="headers/locations/room.h" />
 		<Unit filename="headers/locations/roomHandler.h" />
+		<Unit filename="headers/persons/alvaro.h" />
 		<Unit filename="headers/savestructs.h" />
 		<Unit filename="headers/sdlKeyz.h" />
 		<Unit filename="headers/stringfunctions.h" />

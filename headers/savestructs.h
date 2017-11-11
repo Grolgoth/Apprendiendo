@@ -3,6 +3,8 @@
 #include <vector>
 #include "iofunctions.h"
 #include "View.h"
+#include <ctime>
+#include <stdlib.h>
 #define SAVESTRUCTS_H
 
 class hablar;
@@ -42,6 +44,13 @@ struct personality{
     std::string genderAdress() {
         if (gender == "M")
             return "o";
+        else if (gender == "N") {
+            srand(time(nullptr));
+            if (rand() % 2 == 0)
+                return "o";
+            else
+                return "a";
+        }
         return "a";
     };
     std::string getHobbies() {
@@ -64,5 +73,6 @@ std::string SingleElement(std::vector<std::string> elements, std::string element
 std::vector<std::string> getElements(std::string savegame, std::string element);
 void fromSave(std::string savegame, personality* p);
 location* locationFromSave(std::string savegame, View* view, hablar* menu);
-
+void setElement(std::string savegame, std::string name, std::string element, std::string state);
+void addElement(std::string savegame, std::string name, std::string content);
 #endif // SAVESTRUCTS_H

@@ -51,7 +51,9 @@ std::string hablarNew::getP() {
     result += getPline("Talksalot", p.talksalot);
     result += "</Personality>\n";
     result += "<Location>Room</Location>";
-    result += "<Locations>\n<Room><Step>0</Step><File>Room</File><Wall>true</Wall></Room></Locations>";
+    result += "<Locations>\n<Room><Step>0</Step><File>Room</File><Wall>true</Wall>";
+    result += "<Unsearched>true</Unsearched>";
+    result += "</Room></Locations>\n<Persons><Alvaro>false</Alvaro></Persons>";
     result += "\n</Save>";
     return result;
 }

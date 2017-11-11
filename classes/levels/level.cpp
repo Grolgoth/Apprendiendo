@@ -156,3 +156,7 @@ bool Level::typing(std::string* target, gameDelegator* gd, event* Event) {
     }
     return false;
 }
+
+personality Level::getP() {
+    return p;
+}

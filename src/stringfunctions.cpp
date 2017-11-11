@@ -1,4 +1,5 @@
 #include "stringfunctions.h"
+#include <stdlib.h>
 
 int indexOf(std::string toSearch, std::string snippet) {
     for (unsigned int i=0; i<toSearch.size(); i++) {
@@ -16,6 +17,15 @@ bool stringContains(std::string toSearch, std::string snippet) {
     if (indexOf(toSearch, snippet) < 0)
         return false;
     return true;
+}
+
+int stringToInt(std::string target) {
+    try {
+        return atoi(target.c_str());
+    }
+    catch(...) {
+        return 0;
+    }
 }
 
 std::string replaze(std::string targetString, std::string targetText, std::string replaceText, bool all) {
